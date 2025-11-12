@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matsui Lab | Biomedical &amp; Health Informatics, Nagoya University</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#002B5B",
+              "accent": "#00A6A6",
+              "background-light": "#F8F9FA",
+              "background-dark": "#101820",
+              "text-light": "#101820",
+              "text-dark": "#F8F9FA",
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans JP", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        font-size: 24px;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">science</span>
+<h2 class="text-lg font-bold tracking-[-0.015em]">Matsui Lab</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-accent transition-colors" href="#about">About</a>
+<a class="text-sm font-medium hover:text-accent transition-colors" href="#vision">Vision</a>
+<a class="text-sm font-medium hover:text-accent transition-colors" href="#research">Research</a>
+<a class="text-sm font-medium hover:text-accent transition-colors" href="#activities">Activities</a>
+<a class="text-sm font-medium hover:text-accent transition-colors" href="#join">Join Us</a>
+</nav>
+<button class="hidden md:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-accent/90 transition-colors">
+<span class="truncate">Contact</span>
+</button>
+<button class="md:hidden text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- HeroSection -->
+<section class="relative w-full">
+<div class="min-h-[60vh] md:min-h-[70vh] flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat" data-alt="Abstract blue and purple gradient background representing data visualization" style='background-image: linear-gradient(rgba(0, 43, 91, 0.7), rgba(0, 43, 91, 0.9)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwmZbzn5f1w0UBja_s695HLSjJ78T0jMPkisXQGEN859cskA6a1vrYs9a__W1J0q5Z3ZEVCNCeqjEJaQM0Ax5hz9URZZHpiEL7DDSB9uiO85edw_yGtG3rfltiJCGcDbppe7l9wzYeNX6ir815G1VfEM7US2E39oU3ZTazcnDyL6yoz3yBltP1NHvjJCuiDMf_QOUpucZxViE_2Fvuox4Ko_fvBaYdUVhsCOXO5MucDBXc_EbPyhgy-cfZoBDlRum2icgwUl04f5U");'>
+<div class="max-w-4xl mx-auto px-4 text-center">
+<h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tighter">Matsui Lab</h1>
+<h2 class="mt-4 text-white/90 text-lg sm:text-xl font-normal leading-normal">Biomedical &amp; Health Informatics, Nagoya University</h2>
+</div>
+</div>
+</section>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-20">
+<!-- About Us / Mission Section -->
+<section id="about">
+<div class="text-center">
+<h2 class="text-3xl font-bold tracking-tight text-primary">Our Mission</h2>
+<p class="mt-6 max-w-3xl mx-auto text-lg leading-relaxed text-text-light/80 dark:text-text-dark/80">
+                        The Matsui Lab is a data-driven, interdisciplinary research group at Nagoya University dedicated to advancing the fields of Biomedical and Health Informatics. We integrate cutting-edge computational biology and digital health to address complex challenges and shape the future of medicine.
+                    </p>
+</div>
+</section>
+<!-- Vision & Approach Section -->
+<section id="vision">
+<h2 class="text-3xl font-bold tracking-tight text-primary text-center mb-12">Vision &amp; Approach</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="flex flex-col items-center p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+<div class="flex items-center justify-center size-12 rounded-full bg-accent/10 text-accent mb-4">
+<span class="material-symbols-outlined text-3xl">query_stats</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Data-Driven Discovery</h3>
+<p class="text-text-light/70 dark:text-text-dark/70">Leveraging large-scale biomedical data to uncover novel insights and drive therapeutic innovation.</p>
+</div>
+<div class="flex flex-col items-center p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+<div class="flex items-center justify-center size-12 rounded-full bg-accent/10 text-accent mb-4">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Interdisciplinary Collaboration</h3>
+<p class="text-text-light/70 dark:text-text-dark/70">Fostering a collaborative environment that bridges computer science, biology, and clinical medicine.</p>
+</div>
+<div class="flex flex-col items-center p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+<div class="flex items-center justify-center size-12 rounded-full bg-accent/10 text-accent mb-4">
+<span class="material-symbols-outlined text-3xl">health_and_safety</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Future of Health</h3>
+<p class="text-text-light/70 dark:text-text-dark/70">Developing innovative digital health solutions to enable personalized and preventative care for all.</p>
+</div>
+</div>
+</section>
+<!-- Research Groups Section -->
+<section id="research">
+<h2 class="text-3xl font-bold tracking-tight text-primary text-center mb-12">Research Groups</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm overflow-hidden border border-gray-200 dark:border-gray-800 group transition-shadow hover:shadow-lg">
+<div class="h-48 bg-cover bg-center" data-alt="Stylized visualization of DNA strands and genetic data" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAQzlTqIXuoIfEq0-OJ1AYqktBdUkFrVcdROxXa7N-N5cCRxgW1CQV3-3kDJoUduO8rsmPkwLri1zOduKrlUJSY2qpo7rXuDxntgQljLnTsAcxnr3fZj7pcWm_Y3gL09VY_15PlGUbSvNiD3CbaSpO-BO_eg63m021SlRVCtvaJ6vgKXxNBU3hVgI6Ayo4elgoUCiDGFCKzj0ZJY8YKregye6yQO1AwCJIT3GfY2sTFjYcbmPtDISdOAfZS8ELUEfAioOts3gRIWU')"></div>
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-3">Computational Biology</h3>
+<p class="text-text-light/70 dark:text-text-dark/70 mb-4">Our group focuses on developing and applying computational methods to analyze complex biological data, from genomics to proteomics, to understand disease mechanisms.</p>
+<a class="font-bold text-accent group-hover:underline" href="#">Learn More <span class="material-symbols-outlined text-base align-middle">arrow_forward</span></a>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm overflow-hidden border border-gray-200 dark:border-gray-800 group transition-shadow hover:shadow-lg">
+<div class="h-48 bg-cover bg-center" data-alt="A person interacting with a futuristic digital health interface on a tablet" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBe10_cp9TPyZXsLwc3nvG5ubq7PwtPPhUqs6hOGmjNW4ai89Cx0MzH1WnBE7LexVTtSaOS0TKkZCGonoQPDyYFq8AVqG_Q0NrQYObMHtvo5YsyEjjXb6Of8l7eXNdbm0xiWb9oECgc6aSdysZYTBFDRF39FYh0L1TTJLE1VaUNWM5HDGYhyTo9-DmU2QJx0AtCdap7ldvZeMxbGOl3XuFM-fTbuTwiJtFYRLXovN1-vbhgvF5isUgN1XfUGFnnQLsTIpOY9b_VWzE')"></div>
+<div class="p-6">
+<h3 class="text-2xl font-bold mb-3">Digital Health</h3>
+<p class="text-text-light/70 dark:text-text-dark/70 mb-4">We are dedicated to creating patient-centric digital tools, including mobile health apps and wearable sensor systems, to monitor and improve health outcomes.</p>
+<a class="font-bold text-accent group-hover:underline" href="#">Learn More <span class="material-symbols-outlined text-base align-middle">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Activities Section -->
+<section id="activities">
+<h2 class="text-3xl font-bold tracking-tight text-primary text-center mb-12">Main Activities</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="flex items-center justify-center size-16 mx-auto rounded-full bg-primary/10 text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">article</span>
+</div>
+<h4 class="font-bold">Publications</h4>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center size-16 mx-auto rounded-full bg-primary/10 text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">co_present</span>
+</div>
+<h4 class="font-bold">Presentations</h4>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center size-16 mx-auto rounded-full bg-primary/10 text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">code</span>
+</div>
+<h4 class="font-bold">Software</h4>
+</div>
+<div class="text-center">
+<div class="flex items-center justify-center size-16 mx-auto rounded-full bg-primary/10 text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">hub</span>
+</div>
+<h4 class="font-bold">Collaborations</h4>
+</div>
+</div>
+</section>
+<!-- Join Us Section -->
+<section class="text-center bg-white dark:bg-background-dark p-10 rounded-xl border border-gray-200 dark:border-gray-800" id="join">
+<h2 class="text-3xl font-bold tracking-tight text-primary mb-4">Join Us</h2>
+<p class="max-w-2xl mx-auto text-lg leading-relaxed text-text-light/80 dark:text-text-dark/80 mb-8">
+                    We are always looking for passionate students and researchers to join our team. If you are interested in shaping the future of health informatics, we would love to hear from you.
+                </p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-accent text-white text-base font-bold leading-normal tracking-[0.015em] mx-auto hover:bg-accent/90 transition-colors">
+<span class="truncate">Explore Opportunities</span>
+</button>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="flex flex-col sm:flex-row justify-between items-center text-sm text-text-light/60 dark:text-text-dark/60">
+<p>© 2024 Matsui Lab, Nagoya University. All rights reserved.</p>
+<div class="flex items-center gap-4 mt-4 sm:mt-0">
+<a class="hover:text-accent transition-colors" href="#">Twitter</a>
+<a class="hover:text-accent transition-colors" href="#">GitHub</a>
+<a class="hover:text-accent transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

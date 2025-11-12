@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Team - Matsui Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#002b5c",
+                        "accent": "#00a6a6",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                        "text-light": "#101418",
+                        "text-dark": "#f5f7f8",
+                        "text-muted-light": "#5e748d",
+                        "text-muted-dark": "#94a3b8"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar Component -->
+<header class="sticky top-0 z-50 flex items-center justify-center border-b border-solid border-gray-200/80 dark:border-gray-700/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center justify-between whitespace-nowrap px-4 sm:px-8 lg:px-10 py-3 max-w-7xl w-full">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold tracking-[-0.015em] text-text-light dark:text-text-dark">Matsui Lab</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-end items-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-accent" href="#">Home</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-accent" href="#">Research</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-accent" href="#">Publications</a>
+<a class="text-sm font-medium text-accent dark:text-accent" href="#">Members</a>
+<a class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-accent" href="#">Contact</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Nagoya University</span>
+</button>
+</nav>
+<button class="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 lg:py-16 px-4 sm:px-6 lg:px-8">
+<div class="layout-content-container flex flex-col max-w-7xl flex-1 gap-12">
+<!-- PageHeading Component -->
+<div class="flex flex-col gap-3 text-center">
+<h1 class="text-4xl md:text-5xl font-black tracking-[-0.033em] text-text-light dark:text-text-dark">Our Team</h1>
+<p class="text-base font-normal leading-normal text-text-muted-light dark:text-text-muted-dark max-w-2xl mx-auto">Meet the interdisciplinary researchers and staff at the Matsui Lab, driving the future of data-driven healthcare.</p>
+</div>
+<!-- Principal Investigator Section -->
+<section class="flex flex-col gap-6">
+<h2 class="text-2xl font-bold tracking-[-0.015em] border-b border-gray-200 dark:border-gray-700 pb-3 text-text-light dark:text-text-dark">Principal Investigator</h2>
+<!-- ProfileHeader Component -->
+<div class="flex p-4 @container">
+<div class="flex w-full flex-col gap-6 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 shrink-0 mx-auto sm:mx-0" data-alt="Professional headshot of Professor Matsui" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4xMzKuP2nLcJdqMpQx8UDGlfRfRb_RAc472jTHkPKuNMOU2VRHDDvw2wWRhafQ-avUSIfxUmPIVharjLK-fv3SQONMJu_dLuqnUSJpaqbZOOgmlqhet9PuRv-NeK6d_ZUo0tZwClS2f0wbTPVM3R8xsVtu4UrfUyFphGfGItzF-TxhR2hQpDgkMiqYmya90N38BTj-BNXg0KuvRtOcChYbnC9PRE6wXJhK2RahHXb7dMgT-GiO6foWCE3oELldsUmZNz5i5x4NNg");'></div>
+<div class="flex flex-col justify-center text-center sm:text-left">
+<p class="text-[22px] font-bold tracking-[-0.015em] text-text-light dark:text-text-dark">Professor Kenji Matsui</p>
+<p class="text-base font-normal leading-normal text-primary">Biomedical and Health Informatics</p>
+<p class="text-base font-normal leading-normal mt-2 text-text-muted-light dark:text-text-muted-dark max-w-xl">Professor Matsui's research focuses on integrating computational biology and digital health to solve complex biomedical problems. He leads the lab with a vision for a data-driven future in healthcare.</p>
+</div>
+</div>
+<div class="flex w-full shrink-0 gap-3 @[520px]:w-auto @[520px]:flex-col @[768px]:flex-row">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-800 text-text-light dark:text-text-dark text-sm font-bold tracking-[0.015em] flex-1 @[480px]:flex-auto hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="truncate">Google Scholar</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-[0.015em] flex-1 @[480px]:flex-auto hover:bg-primary/90 transition-colors">
+<span class="truncate">Email</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Postdoctoral Researchers Section -->
+<section class="flex flex-col gap-6">
+<h2 class="text-2xl font-bold tracking-[-0.015em] border-b border-gray-200 dark:border-gray-700 pb-3 text-text-light dark:text-text-dark">Postdoctoral Researchers</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Member Card Component -->
+<div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-200/50 dark:border-gray-700/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 shrink-0" data-alt="Headshot of Dr. Haruka Ito" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhqLFnX3-oYCX12pTxP_zMv4MymIqIObFRVxEwfHKflbcNIoRJY_l--0zgZaEnulbFgrTw1dhGRnyZEmuiTyDNM6xkt5t4rKlZHeuYwAnl-w5hQS7ORey3EZAFOnpo4s3-xdALbaUQE5Hrou5F2A23ObgdolCise5OgDyrmsaJVBG6KWj6_Sp2e8kgYosYagUWiUsUdZLyUQM5l8EDkMES2xnRYgXkHOFviLymavoUE6_k5GdyfZIJXAJ30n7ot70VG1ll3C5WoZs");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Dr. Haruka Ito</p>
+<p class="text-sm font-normal text-text-muted-light dark:text-text-muted-dark">Postdoctoral Fellow</p>
+</div>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Researching machine learning models for early disease detection from electronic health records.</p>
+<div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="school"></span></a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="public"></span></a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="mail"></span></a>
+</div>
+</div>
+<!-- Member Card Component -->
+<div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-200/50 dark:border-gray-700/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 shrink-0" data-alt="Headshot of Dr. Ren Suzuki" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPOTvzvZ115WZRhvqAZ9UJLH985ISd3Ga7DhVkTAanEgAuGy5L2E0KWh4RRdabZMhh2-Fo2TeOyXuxE6oPtth73OZBaEG6NkrdYg5_hTjBmMKGRnJBe85TGz048cqAfp_apWiTB6yZW-Ry525nJ92UTWbaaS4tEovJJME2uP6th_ypHaW97vV1QFNtpveB-6219QFiNIbxTLdazDP5DQHx-JNAPebtuKPg24tmHKjt-xw854xrRonwkOJ2D6Lgac2A-ajHVBnlqNY");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Dr. Ren Suzuki</p>
+<p class="text-sm font-normal text-text-muted-light dark:text-text-muted-dark">Postdoctoral Fellow</p>
+</div>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Focuses on computational genomics and the development of novel bioinformatics pipelines.</p>
+<div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="school"></span></a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="mail"></span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Ph.D. Students Section -->
+<section class="flex flex-col gap-6">
+<h2 class="text-2xl font-bold tracking-[-0.015em] border-b border-gray-200 dark:border-gray-700 pb-3 text-text-light dark:text-text-dark">Ph.D. Students</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Member Card Component -->
+<div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-200/50 dark:border-gray-700/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 shrink-0" data-alt="Headshot of Yuki Tanaka" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFC3etmbOwKzgT9DA844JunMDC1wlX9GSCDozwBUOZncHy3TD4eLHj2QsTS2zGUQQUu47RRz9KWEUVhBPD20QQ8u-JI0_TsRmR94IFjYrIFi__IuxFZ0jz79uWl4qE9QwgTErshdbhLHjhAI_JufL8XJ-DchSpBPdeYbxpJ2owE0wF5DN-if8AdOhILMzKsZjP2rmV_KSp2ext_2hbOWq9dJ0G9CAMr_XP8gzMus1j99PGvu-M_Uf-Kp-3RaXzEYWzZM2f1uwPkUg");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Yuki Tanaka</p>
+<p class="text-sm font-normal text-text-muted-light dark:text-text-muted-dark">Ph.D. Candidate</p>
+</div>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Investigating the use of wearable sensor data for personalized digital health interventions.</p>
+<div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="school"></span></a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="public"></span></a>
+</div>
+</div>
+<!-- Member Card Component -->
+<div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-200/50 dark:border-gray-700/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 shrink-0" data-alt="Headshot of Kaito Yamamoto" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0sEZ3l4azdphUonYpiNW2VS9nVkdgiReBueuGF69BwbxzbLAfuHJqxvmuGEyrItUWgyrGStIrrCdBlqumhWjlWJqz29jlCbGDCzu5FrBLHPAp9RsMnXBFemndTKTrUxkboHI-SG-fFHvEHiVbmbZUy1-SZg4DMMMxkLoLNZp7HE0QxVQXJ5AwE_sDs_BB0h7XwYAwF7Y6iksGac2q7ZXmm0nlo0YBzY9C2GiUVxK4e4XgHxpYLa4Rb0NXklH4IOgxCi5edshAChs");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Airi Watanabe</p>
+<p class="text-sm font-normal text-text-muted-light dark:text-text-muted-dark">Ph.D. Candidate</p>
+</div>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Developing privacy-preserving techniques for federated learning on sensitive medical data.</p>
+<div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="school"></span></a>
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="mail"></span></a>
+</div>
+</div>
+<!-- Member Card Component -->
+<div class="flex flex-col gap-4 p-6 bg-white dark:bg-background-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-200/50 dark:border-gray-700/50">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 shrink-0" data-alt="Headshot of Sota Kobayashi" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9wyVSnFz27sgBjgTKA4kCeiw5ajT7ST8Emo-9irYB5BU1S86xyOXAI_U0JZG9SLqQ_M3-snBWNnNfqIUZVfjTWyPxK9h45llrq6ywgsi0RBwHNZ8VKR6Q58UIQ2Vet8Mf3XYZDAuZB1tNqmf6AD6qGN-gMGWcEbWynAvfwxI8fzCQFIz017Er6dfic2DGUSFrz6rMxLwWDggoPY30yiM5X7-NEg0r8RdQ1hHCoKx70Y3rneHogslNcVe9vn4QiN07nZy0CxiCBmk");'></div>
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Sota Kobayashi</p>
+<p class="text-sm font-normal text-text-muted-light dark:text-text-muted-dark">Ph.D. Student</p>
+</div>
+</div>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">My work involves natural language processing of clinical notes to extract meaningful patient phenotypes.</p>
+<div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+<a class="text-text-muted-light dark:text-text-muted-dark hover:text-accent transition-colors" href="#"><span class="material-symbols-outlined text-xl" data-icon="public"></span></a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-2">
+<div class="flex items-center gap-4">
+<div class="size-6">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold">Matsui Lab</h2>
+</div>
+<p class="mt-4 text-sm text-gray-300">Biomedical and Health Informatics Group<br/>Nagoya University, Japan</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Navigate</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Home</a></li>
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Research</a></li>
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Publications</a></li>
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Members</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Contact</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Email Us</a></li>
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Directions</a></li>
+<li><a class="text-sm text-gray-300 hover:text-white" href="#">Nagoya University</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-100/20 pt-8 text-center">
+<p class="text-xs text-gray-400">© 2024 Matsui Lab. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

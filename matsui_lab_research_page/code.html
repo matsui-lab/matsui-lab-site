@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matsui Lab - Research</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans+JP:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#002B5B", // Deep Navy
+              "accent": "#00A6A6", // Cyan
+              "background-light": "#F5F5F7", // Light Gray
+              "background-dark": "#180f23", // Keeping a dark mode, user didn't specify
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans JP", "sans-serif"]
+            },
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-background-dark/50 border-b border-solid border-slate-200 dark:border-slate-800 px-4 sm:px-8 lg:px-16 sticky top-0 z-50 backdrop-blur-sm">
+<div class="flex items-center justify-between whitespace-nowrap py-3 max-w-7xl mx-auto">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary dark:text-accent">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Matsui Lab</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-accent" href="#">Home</a>
+<a class="text-sm font-bold leading-normal text-primary dark:text-accent" href="#">Research</a>
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-accent" href="#">Publications</a>
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-accent" href="#">Members</a>
+<a class="text-sm font-medium leading-normal text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-accent" href="#">Contact</a>
+</nav>
+<button class="hidden lg:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Nagoya University</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-6 p-4 mb-12">
+<div class="flex flex-col gap-3 max-w-3xl">
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Our Research</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg font-normal leading-normal">
+                            Our lab focuses on two core pillars: Computational Biology and Digital Health, integrating data-driven approaches to advance biomedical and health informatics.
+                        </p>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- SideNavBar -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<div class="flex flex-col gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 sticky top-24">
+<div class="flex flex-col">
+<h3 class="text-slate-900 dark:text-white text-base font-medium leading-normal">Filter Projects</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">By Research Theme</p>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-accent/10 dark:bg-accent/20" href="#">
+<span class="material-symbols-outlined text-accent text-xl">grid_view</span>
+<p class="text-accent text-sm font-medium leading-normal">All Projects</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 group" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-accent text-xl">genetics</span>
+<p class="text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-accent text-sm font-medium leading-normal">Genomic Analysis</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 group" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-accent text-xl">watch</span>
+<p class="text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-accent text-sm font-medium leading-normal">Wearable Tech</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 group" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-accent text-xl">neurology</span>
+<p class="text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-accent text-sm font-medium leading-normal">AI in Medicine</p>
+</a>
+</div>
+<button class="mt-4 flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+<span class="truncate">Clear Filters</span>
+</button>
+</div>
+</aside>
+<!-- Projects Section -->
+<div class="flex-1">
+<!-- Computational Biology Section -->
+<section class="mb-12" id="comp-bio">
+<h2 class="text-slate-900 dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-slate-200 dark:border-slate-800 mb-8">🧬 Computational Biology</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:border-accent dark:hover:border-accent transition-all">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Abstract visualization of DNA strands and data points" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIhhcMyJskLWj7z1_Je-2rIIeGdVkO5bV1b8JA4LoagTAU98lkyuOH_s5_eO0vhS7n7uxA-U9F_dvqumO5chAywdWlA3QQz5I6HdSrcYv2q9POJO0RkdIvg30NSvZmXFkqeFk_8jmIEHoUUfF_GGrdwmPpBZsTJovhoBLSjeXCEMofwjS9oAWqmXBth4WcDAWiTZxz-bYZs1pPHpJz36Vs-OKuVmi24m4BhpG68-RpoG48vLxPCju4nFis-qBEARsh-Jgx_KIB6QI");'></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-normal">Genomic Data Analysis Pipeline</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">
+                                            An open-source pipeline for analyzing next-generation sequencing data to identify genetic variants associated with diseases.
+                                        </p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent dark:bg-accent/20">Genomics</span>
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent dark:bg-accent/20">Bioinformatics</span>
+</div>
+<a class="text-accent text-sm font-medium leading-normal mt-2 hover:underline" href="#">Learn More →</a>
+</div>
+</div>
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-lg hover:border-accent dark:hover:border-accent transition-all">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A network graph showing complex cellular interactions" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQrhk08g_EBQ98XmgfCpppKU22mO_5w8egoTcz14sec7rN-1UCS3hk_lDL4uWY2h2HpMla72nNWTajAgTeUGyG0Zs2DSqAv_S_i_qi7e1esSyrEVi_FJgQ8Ggdqy2x-n-0nc0FO8kYqfkXDmn-jo1mNOQw9e83eyJ5eAH1SqQrfZ4M2uSutHBBYQfDiW81nngYcvAdMJ1ay183jXcqnmSbodlPOQLlreE9L_eIGLUDcGoi0KPuKEZmQiuvowNHycPqUQwbqP8-dr4");'></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-base font-bold leading-normal">Systems Biology of Cellular Networks</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">A computational model simulating the complex interactions within cellular signaling pathways to understand disease mechanisms.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent dark:bg-accent/20">Systems Biology</span>
+</div>
+<a class="text-accent text-sm font-medium leading-normal mt-2 hover:underline" href="#">Learn More →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Health Section -->
+<section class="bg-primary dark:bg-slate-900/50 rounded-xl p-6 md:p-8" id="digital-health">
+<h2 class="text-white text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-2 border-b border-white/20 mb-8">🧠 Digital Health</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-accent transition-all">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A smartwatch displaying health metrics on a person's wrist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClvUG4LcrpNAo2GbhDj2CSroGskG4L3RPObqP1xc3t-clux9lFmub-O9JB8mGBy1f0at15i6juYUp8o_il_fW9P_ConeHNS_vEvSyS0hBg87LKEMa7E_6iC02p2ClBCmb6-buH13jZEwjBTHaOHL0ZPv0yz8pjG6_eDio9k96QCT9JBgrHN2X9nhOfZJP3rlLhK6MMsXHWpwPUDKu8eAl4mjLv4Yo6knT6Dg_Un6n7nP2coD1yAVTjEc93zXPpYG_GPVbNkWArALM");'></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-white text-base font-bold leading-normal">Wearable Sensor Data for Predictive Health</h3>
+<p class="text-slate-300 text-sm font-normal leading-normal">
+                                            Utilizing data from consumer smartwatches to develop algorithms that predict early signs of cardiovascular events.
+                                        </p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/80 text-white">Wearable Tech</span>
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/80 text-white">Patient Monitoring</span>
+</div>
+<a class="text-accent text-sm font-medium leading-normal mt-2 hover:underline" href="#">View Publication →</a>
+</div>
+</div>
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-accent transition-all">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A mobile phone screen showing a health and wellness application interface" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCpL8yDo9gOR6LzeWRCI8dEflCr25gPa3sf_6yJlfbmmz0Qt6GQys7XhmD4LcdDGrEN_19HBnAyVdwe3YvPJ1PGbKi0dQ4nr4qiILzzqQ-4MIorwsCf2jjBJOdjjd8ojpeBOzWjsrsqixQTKffbW9AEBEYydv-r-fwp1Jsz6nSJEupkVxP9l6sebHE4GNn4LHEwPVIioP8e-9u0WnMDJYfu5hxFi8wm0B24UO40fbCterb9L7ftutiSWQkceJ3HCVw3sB9-DSfGASU");'></div>
+<div class="flex flex-col gap-2">
+<h3 class="text-white text-base font-bold leading-normal">mHealth App for Chronic Disease Management</h3>
+<p class="text-slate-300 text-sm font-normal leading-normal">A mobile application designed to help patients manage chronic conditions through personalized feedback and data tracking.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/80 text-white">mHealth</span>
+<span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/80 text-white">AI in Medicine</span>
+</div>
+<a class="text-accent text-sm font-medium leading-normal mt-2 hover:underline" href="#">View on GitHub →</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

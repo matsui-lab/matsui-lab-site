@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Achievements - Matsui Lab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#002B5B",
+                        "accent": "#00A6A6",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#180f23",
+                        "text-primary-light": "#002B5B",
+                        "text-primary-dark": "#ffffff",
+                        "text-secondary-light": "#526a7e",
+                        "text-secondary-dark": "#a0b3c3",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#334155",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#20152f"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar Component -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-4 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-text-primary-light dark:text-text-primary-dark">
+<div class="size-6 text-primary dark:text-accent">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em]">Matsui Lab</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="#">Home</a>
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="#">Research</a>
+<a class="text-accent dark:text-accent text-sm font-bold leading-normal" href="#">Achievements</a>
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="#">Members</a>
+<a class="text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal hover:text-accent dark:hover:text-accent" href="#">Contact</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<span class="truncate">Join Us</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
+<div class="layout-content-container flex flex-col max-w-4xl flex-1">
+<!-- PageHeading Component -->
+<div class="flex flex-wrap justify-between gap-4 p-4 border-b border-border-light dark:border-border-dark pb-8 mb-8">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-text-primary-light dark:text-text-primary-dark text-4xl font-black leading-tight tracking-[-0.033em]">Achievements</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Showcasing our academic outputs and research milestones.</p>
+</div>
+</div>
+<!-- ButtonGroup Component -->
+<div class="flex justify-stretch mb-12">
+<div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<span class="truncate">View on Google Scholar</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary dark:bg-accent/20 dark:text-accent text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 dark:hover:bg-accent/30 transition-colors">
+<span class="truncate">Download CV</span>
+</button>
+</div>
+</div>
+<!-- Featured Publications Section -->
+<div class="flex flex-col gap-6">
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-border-light dark:border-border-dark">Featured Publications</h2>
+<!-- ListItem 1 -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<a class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal hover:text-accent dark:hover:text-accent" href="#">Integrating Computational Biology and Digital Health for Future Medicine</a>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Matsui, Y., Tanaka, A., &amp; Kobayashi, S.</p>
+<div>
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal italic">Journal of Biomedical Informatics, 2023.</span>
+<span class="text-text-secondary-light/70 dark:text-text-secondary-dark/70 text-xs font-normal leading-normal ml-1">Vol. 120, Issue 4, pp. 104-115.</span>
+</div>
+</div>
+<!-- ListItem 2 -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<a class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal hover:text-accent dark:hover:text-accent" href="#">Data-Driven Approaches in Precision Health: A Review</a>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Yamamoto, K., Ito, M., &amp; Matsui, Y.</p>
+<div>
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal italic">Annual Review of Genomics and Human Genetics, 2022.</span>
+<span class="text-text-secondary-light/70 dark:text-text-secondary-dark/70 text-xs font-normal leading-normal ml-1">Vol. 23, pp. 589-610.</span>
+</div>
+</div>
+</div>
+<!-- Full Publication List Section -->
+<div class="flex flex-col gap-6 mt-16">
+<h2 class="text-text-primary-light dark:text-text-primary-dark text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-border-light dark:border-border-dark">Full Publication List</h2>
+<!-- Timeline Marker 2023 -->
+<div class="flex items-center gap-4 px-4 pt-8">
+<span class="text-accent text-lg font-bold">2023</span>
+<hr class="flex-grow border-t border-border-light dark:border-border-dark"/>
+</div>
+<!-- ListItem 3 -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<a class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal hover:text-accent dark:hover:text-accent" href="#">Integrating Computational Biology and Digital Health for Future Medicine</a>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Matsui, Y., Tanaka, A., &amp; Kobayashi, S.</p>
+<div>
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal italic">Journal of Biomedical Informatics, 2023.</span>
+<span class="text-text-secondary-light/70 dark:text-text-secondary-dark/70 text-xs font-normal leading-normal ml-1">Vol. 120, Issue 4, pp. 104-115.</span>
+</div>
+</div>
+<!-- Timeline Marker 2022 -->
+<div class="flex items-center gap-4 px-4 pt-8">
+<span class="text-accent text-lg font-bold">2022</span>
+<hr class="flex-grow border-t border-border-light dark:border-border-dark"/>
+</div>
+<!-- ListItem 4 -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<a class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal hover:text-accent dark:hover:text-accent" href="#">Data-Driven Approaches in Precision Health: A Review</a>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Yamamoto, K., Ito, M., &amp; Matsui, Y.</p>
+<div>
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal italic">Annual Review of Genomics and Human Genetics, 2022.</span>
+<span class="text-text-secondary-light/70 dark:text-text-secondary-dark/70 text-xs font-normal leading-normal ml-1">Vol. 23, pp. 589-610.</span>
+</div>
+</div>
+<!-- ListItem 5 -->
+<div class="flex flex-col gap-4 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<a class="text-text-primary-light dark:text-text-primary-dark text-base font-bold leading-normal hover:text-accent dark:hover:text-accent" href="#">Genomic Data Privacy and Federated Learning Models</a>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal">Nakamura, T., Matsui, Y., &amp; Sato, R.</p>
+<div>
+<span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal italic">Nature Communications, 2022.</span>
+<span class="text-text-secondary-light/70 dark:text-text-secondary-dark/70 text-xs font-normal leading-normal ml-1">Vol. 13, Article number: 7890.</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
