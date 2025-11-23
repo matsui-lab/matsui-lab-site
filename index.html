@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matsui Lab | Biomedical & Health Informatics | Nagoya University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              nu: {
+                primary: 'var(--color-primary)',      // Main Brand Color
+                primaryDark: 'var(--color-primary-dark)',
+                accent: 'var(--color-accent)',        // Highlights (Bio/Green)
+                tech: 'var(--color-tech)',            // Tech Accents (Digital/Blue)
+                dark: 'var(--color-dark)',            // Main Background
+                surface: 'var(--color-surface)',      // Card Backgrounds
+                text: 'var(--color-text)',            // Main Text
+                textMuted: 'var(--color-text-muted)', // Secondary Text
+              }
+            },
+            fontFamily: {
+              sans: ['"Inter"', '"Noto Sans JP"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
+              'radial-glow': "radial-gradient(circle at center, var(--tw-gradient-stops))",
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scan': 'scan 3s linear infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Default Scientific Dark Theme */
+        --color-primary: #004C3F;      /* Nagoya U Green */
+        --color-primary-dark: #00332a;
+        --color-accent: #10B981;       /* Emerald 500 */
+        --color-tech: #06B6D4;         /* Cyan 500 */
+        --color-dark: #020617;         /* Slate 950 */
+        --color-surface: #0F172A;      /* Slate 900 */
+        --color-text: #f8fafc;         /* Slate 50 */
+        --color-text-muted: #94a3b8;   /* Slate 400 */
+      }
+
+      body {
+        font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        background-color: var(--color-dark);
+        color: var(--color-text);
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+      
+      /* Tech Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-dark);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary);
+      }
+
+      /* Utilities */
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-card-hover {
+        transition: all 0.3s ease;
+      }
+      .glass-card-hover:hover {
+        background: rgba(15, 23, 42, 0.8);
+        border-color: rgba(16, 185, 129, 0.3); /* Emerald tint */
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .text-glow {
+        text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+      }
+
+      .tech-border {
+        position: relative;
+      }
+      .tech-border::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
