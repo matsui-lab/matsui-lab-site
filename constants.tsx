@@ -901,7 +901,7 @@ export const contentEN: LabContent = {
         name: "Optical Motion Capture",
         productName: "Professional Motion Capture System",
         location: "South Bldg 1F Training Room",
-        description: "High-precision 3D motion analysis system borrowed from Nagoya City University (Prof. Nojima).",
+        description: "High-precision 3D motion analysis system (OptiTrack).",
         notes: ["Requires specialized marker bundle"]
       },
       {
