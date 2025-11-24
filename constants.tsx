@@ -438,7 +438,7 @@ export const MEMBERS: Member[] = [
     id: 'matsui',
     name: 'Yusuke Matsui',
     role: 'Principal Investigator / Associate Professor',
-    image: 'https://github.com/yusuke-matsui.png', 
+    image: '/matsui-lab-site/images/members/yusuke-matsui.jpg',
     description: 'Ph.D. (Information Science). Specializes in Multi-omics, Network Medicine, and Digital Health.',
     links: {
       website: 'https://yusuke-matsui.github.io/',
