@@ -643,3 +643,78 @@ const contentEN: LabContent = {
     highlight: "Multi-Layered Data",
     description: "The human body is a complex system where molecular dynamics (Micro) and physical behaviors (Macro) interact. We use AI to integrate these layers, creating a precision 'Digital Twin' for healthcare.",
     bioCard: {
+      title: "Computational Biology",
+      desc: "Analyzing molecular networks, omics data, and biological systems using advanced computational methods and AI."
+    },
+    healthCard: {
+      title: "Digital Health",
+      desc: "Integrating wearable sensors, physiological signals, and health data to create personalized healthcare solutions."
+    }
+  },
+  research: {
+    title: "Research Areas",
+    subtitle: "Bridging Molecular Biology and Digital Health",
+    domains: []
+  },
+  computing: {
+    title: "Computing Resources",
+    subtitle: "High-Performance Infrastructure",
+    igcoreTitle: "iGCORE HPC Cluster",
+    daikoTitle: "DAIKO Servers",
+    deviceTitle: "Biosignal Devices"
+  },
+  devices: {
+    list: []
+  },
+  dataScience: {
+    title: "Data Science Platform",
+    subtitle: "Integrated Analysis Environment",
+    description: "Our comprehensive data science platform enables seamless integration of multi-omics and health data.",
+    workbench: {
+      title: "Interactive Workbench",
+      desc: "Jupyter-based environment for exploratory analysis",
+      features: ["Python/R Support", "GPU Acceleration", "Collaborative Notebooks"]
+    },
+    pipelines: {
+      title: "Analysis Pipelines",
+      desc: "Automated workflows for omics and health data",
+      features: ["Nextflow/Snakemake", "Reproducible", "Scalable"]
+    },
+    connect: {
+      title: "Data Integration",
+      desc: "Connect diverse data sources and formats",
+      features: ["Multi-omics", "Clinical Data", "Sensor Data"]
+    }
+  },
+  publications: {
+    title: "Publications"
+  },
+  members: {
+    title: "Lab Members",
+    subtitle: "Our Team",
+    list: MEMBERS
+  },
+  footer: {
+    rights: "© 2025 Matsui Laboratory. All rights reserved.",
+    system: "Nagoya University Graduate School of Medicine"
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Get in touch with us"
+  },
+  locations: LOCATIONS,
+  nav: [
+    { id: SectionId.HOME, label: "Home" },
+    { id: SectionId.RESEARCH, label: "Research" },
+    { id: SectionId.COMPUTING, label: "Computing" },
+    { id: SectionId.MEMBERS, label: "Members" },
+    { id: SectionId.PUBLICATIONS, label: "Publications" },
+    { id: SectionId.NEWS, label: "News" },
+    { id: SectionId.CONTACT, label: "Contact" }
+  ]
+};
+
+export const CONTENT: Record<Language, LabContent> = {
+  en: contentEN,
+  jp: contentEN // Using EN for both until JP translation is added
+};
