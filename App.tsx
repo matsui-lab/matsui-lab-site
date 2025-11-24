@@ -1,8 +1,10 @@
+
+
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import Navbar from './components/Navbar';
 import GeminiAssistant from './components/GeminiAssistant';
-import { CONTENT, PUBLICATIONS, IGCORE_SPECS, DAIKO_SERVERS } from './constants';
-import { SectionId, Language, Theme, ServerSpec } from './types';
+import { CONTENT, PUBLICATIONS, IGCORE_SPECS, DAIKO_SERVERS, DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from './constants';
+import { SectionId, Language, Theme, ServerSpec, ThemeMode } from './types';
 import { generateThemeFromMood } from './services/geminiService';
 import { ArrowRight, Mail, MapPin, ExternalLink, Calendar, ChevronRight, Layers, Database, Cpu, Dna, Laptop, Smartphone, BookOpen, FileText, Monitor, Activity, Network, HeartPulse, ScanLine, Wand2, RefreshCw, X, Server, Terminal, HardDrive, Share2, Code2, Globe, Workflow, Glasses, Hand, Camera, Sparkles, Loader2, ImagePlus } from 'lucide-react';
 
@@ -10,7 +12,12 @@ import { ArrowRight, Mail, MapPin, ExternalLink, Calendar, ChevronRight, Layers,
  * ScrollReveal Component
  * Triggers animation when children enter viewport
  */
-const ScrollReveal = ({ children, className = "" }: { children?: React.ReactNode; className?: string }) => {
+interface ScrollRevealProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const ScrollReveal: React.FC<ScrollRevealProps> = ({ children, className = "" }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -57,6 +64,8 @@ const ElegantBackground = ({ type }: { type: 'molecules' | 'circuit' | 'streams'
     const style = getComputedStyle(document.documentElement);
     const accent = style.getPropertyValue('--color-accent').trim() || '#10B981';
     const tech = style.getPropertyValue('--color-tech').trim() || '#06B6D4';
+    // Use text color for network nodes in light mode
+    const textColor = style.getPropertyValue('--color-text').trim() || '#f8fafc';
     
     const init = () => {
       canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
@@ -208,8 +217,8 @@ const ElegantBackground = ({ type }: { type: 'molecules' | 'circuit' | 'streams'
              ctx.stroke();
           });
        } else if (type === 'network') {
-          ctx.strokeStyle = '#ffffff';
-          ctx.fillStyle = '#ffffff';
+          ctx.strokeStyle = textColor; // Use text color so it is visible on both dark/light
+          ctx.fillStyle = textColor;
           particles.forEach(p => {
              p.x += p.vx; p.y += p.vy;
              if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
@@ -262,12 +271,26 @@ const ElegantBackground = ({ type }: { type: 'molecules' | 'circuit' | 'streams'
        animationId = requestAnimationFrame(draw);
     };
     
+    // Resize Observer to handle container size changes
+    const resizeObserver = new ResizeObserver(() => {
+       init();
+    });
+    if (canvas.parentElement) {
+       resizeObserver.observe(canvas.parentElement);
+    }
+    
     window.addEventListener('resize', init);
+    // Observe theme changes (attribute changes on root)
+    const observer = new MutationObserver(() => init());
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+
     init();
     draw();
     
     return () => {
        window.removeEventListener('resize', init);
+       resizeObserver.disconnect();
+       observer.disconnect();
        cancelAnimationFrame(animationId);
     }
   }, [type]);
@@ -319,10 +342,11 @@ const BioFlowBackground = () => {
     let particles: Particle[] = [];
     let bgNodes: BgNode[] = []; 
     
-    // Cache colors
+    // Cache colors (will be updated in init/resize)
     let colorAccent = '#10B981';
     let colorTech = '#06B6D4';
     let colorDark = '#020617';
+    let colorText = '#f8fafc';
 
     // 14 Distinct Signals
     const SIGNAL_TYPES = [
@@ -350,6 +374,7 @@ const BioFlowBackground = () => {
       colorAccent = style.getPropertyValue('--color-accent').trim() || '#10B981';
       colorTech = style.getPropertyValue('--color-tech').trim() || '#06B6D4';
       colorDark = style.getPropertyValue('--color-dark').trim() || '#020617';
+      colorText = style.getPropertyValue('--color-text').trim() || '#f8fafc';
       
       particles = [];
       bgNodes = [];
@@ -496,7 +521,7 @@ const BioFlowBackground = () => {
           
           if (distSq < 22500) { 
              ctx.beginPath();
-             ctx.strokeStyle = '#ffffff';
+             ctx.strokeStyle = colorText; // Use text color so it works on light/dark
              ctx.globalAlpha = nodeOpacity * (1 - Math.sqrt(distSq)/150);
              ctx.moveTo(node.x, node.y);
              ctx.lineTo(other.x, other.y);
@@ -507,7 +532,7 @@ const BioFlowBackground = () => {
         ctx.globalAlpha = nodeOpacity;
         ctx.beginPath();
         ctx.arc(node.x, node.y, xPct > 0.25 && xPct < 0.8 ? 2 : 1.5, 0, Math.PI*2);
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = colorText;
         ctx.fill();
       });
       ctx.globalAlpha = 1.0;
@@ -688,12 +713,17 @@ const BioFlowBackground = () => {
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
     
+    // Watch for theme changes
+    const observer = new MutationObserver(() => init());
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+    
     init();
     draw();
 
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -714,11 +744,11 @@ const MissionCanvas = ({ mode }: { mode: 'bio' | 'health' }) => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    // Get colors
     const getVarColor = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    const accentColor = getVarColor('--color-accent') || '#10B981';
-    const techColor = getVarColor('--color-tech') || '#06B6D4';
-    const surfaceColor = getVarColor('--color-surface') || '#0F172A';
+    
+    let accentColor = getVarColor('--color-accent') || '#10B981';
+    let techColor = getVarColor('--color-tech') || '#06B6D4';
+    let surfaceColor = getVarColor('--color-surface') || '#0F172A';
 
     let animationId: number;
     let frame = 0;
@@ -819,14 +849,12 @@ const MissionCanvas = ({ mode }: { mode: 'bio' | 'health' }) => {
            
            // Simulated heartbeat pattern
            const t = (x + frame * 4) % canvas.width;
-           const pulsePos = 300; // location of the pulse on screen (relative to scrolling t)
            
            // Basic noise
            y += Math.sin(x * 0.1 + frame * 0.1) * 5;
 
            // Heartbeat spike logic (simplified)
-           // We map 'x' to a pulse function
-           const phase = (x - frame * 3) % 400; // Repeat every 400px
+           const phase = (x - frame * 3) % 400; 
            
            if (phase > 180 && phase < 220) {
               // QRS complex approximation
@@ -858,6 +886,14 @@ const MissionCanvas = ({ mode }: { mode: 'bio' | 'health' }) => {
       animationId = requestAnimationFrame(draw);
     };
     
+    // Watch for theme changes
+    const observer = new MutationObserver(() => {
+        accentColor = getVarColor('--color-accent') || '#10B981';
+        techColor = getVarColor('--color-tech') || '#06B6D4';
+        surfaceColor = getVarColor('--color-surface') || '#0F172A';
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+    
     const resize = () => {
         if (canvas.parentElement) {
             canvas.width = canvas.parentElement.clientWidth;
@@ -870,6 +906,7 @@ const MissionCanvas = ({ mode }: { mode: 'bio' | 'health' }) => {
 
     return () => {
         window.removeEventListener('resize', resize);
+        observer.disconnect();
         cancelAnimationFrame(animationId);
     }
   }, [mode]);
@@ -884,7 +921,8 @@ function App() {
   const [missionMode, setMissionMode] = useState<'bio' | 'health'>('bio');
   const [lang, setLang] = useState<Language>('en'); // Default language
   
-  // Theme Generator State
+  // Theme State
+  const [themeMode, setThemeMode] = useState<ThemeMode>('auto');
   const [showThemeGen, setShowThemeGen] = useState(false);
   const [moodInput, setMoodInput] = useState('');
   const [isGeneratingTheme, setIsGeneratingTheme] = useState(false);
@@ -895,20 +933,36 @@ function App() {
 
   const content = CONTENT[lang];
 
-  // Apply Theme Variables
+  // Logic to resolve and apply theme
   useEffect(() => {
-    if (theme) {
+    const applyTheme = (targetTheme: Theme) => {
       const root = document.documentElement;
-      root.style.setProperty('--color-primary', theme.colors.primary);
-      root.style.setProperty('--color-primary-dark', theme.colors.primaryDark);
-      root.style.setProperty('--color-accent', theme.colors.accent);
-      root.style.setProperty('--color-tech', theme.colors.tech);
-      root.style.setProperty('--color-dark', theme.colors.dark);
-      root.style.setProperty('--color-surface', theme.colors.surface);
-      root.style.setProperty('--color-text', theme.colors.text);
-      root.style.setProperty('--color-text-muted', theme.colors.textMuted);
+      root.style.setProperty('--color-primary', targetTheme.colors.primary);
+      root.style.setProperty('--color-primary-dark', targetTheme.colors.primaryDark);
+      root.style.setProperty('--color-accent', targetTheme.colors.accent);
+      root.style.setProperty('--color-tech', targetTheme.colors.tech);
+      root.style.setProperty('--color-dark', targetTheme.colors.dark);
+      root.style.setProperty('--color-surface', targetTheme.colors.surface);
+      root.style.setProperty('--color-text', targetTheme.colors.text);
+      root.style.setProperty('--color-text-muted', targetTheme.colors.textMuted);
+      root.style.setProperty('--color-border', targetTheme.colors.border);
+    };
+
+    if (theme) {
+       // AI Generated Theme takes precedence if active
+       applyTheme(theme);
+    } else {
+       // Standard Modes
+       let mode = themeMode;
+       if (mode === 'auto') {
+         const hour = new Date().getHours();
+         mode = (hour >= 6 && hour < 18) ? 'light' : 'dark';
+       }
+       
+       if (mode === 'light') applyTheme(DEFAULT_LIGHT_THEME);
+       else applyTheme(DEFAULT_DARK_THEME);
     }
-  }, [theme]);
+  }, [themeMode, theme]);
 
   const handleGenerateTheme = async () => {
     if (!moodInput.trim()) return;
@@ -923,15 +977,6 @@ function App() {
   };
 
   const resetTheme = () => {
-    const root = document.documentElement;
-    root.style.removeProperty('--color-primary');
-    root.style.removeProperty('--color-primary-dark');
-    root.style.removeProperty('--color-accent');
-    root.style.removeProperty('--color-tech');
-    root.style.removeProperty('--color-dark');
-    root.style.removeProperty('--color-surface');
-    root.style.removeProperty('--color-text');
-    root.style.removeProperty('--color-text-muted');
     setTheme(null);
   };
 
@@ -975,7 +1020,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-nu-dark text-nu-text font-sans selection:bg-nu-accent selection:text-white transition-colors duration-700">
-      <Navbar activeSection={activeSection} lang={lang} setLang={setLang} />
+      <Navbar 
+        activeSection={activeSection} 
+        lang={lang} 
+        setLang={setLang} 
+        themeMode={themeMode}
+        setThemeMode={setThemeMode}
+      />
 
       {/* Hero Section */}
       <section id={SectionId.HOME} className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden">
@@ -989,7 +1040,7 @@ function App() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           
           {/* Animated Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-nu-surface/80 border border-slate-700 backdrop-blur-md mb-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-nu-surface/80 border border-nu-border backdrop-blur-md mb-8 animate-fade-in-up">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-nu-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-nu-accent"></span>
@@ -1016,16 +1067,16 @@ function App() {
                {content.hero.ctaResearch}
              </button>
              <button onClick={() => document.getElementById(SectionId.CONTACT)?.scrollIntoView({behavior:'smooth'})}
-               className="w-full sm:w-auto px-8 py-4 bg-transparent border border-slate-600 hover:border-nu-text text-nu-textMuted hover:text-nu-text font-semibold rounded-lg transition-all flex items-center justify-center">
+               className="w-full sm:w-auto px-8 py-4 bg-transparent border border-nu-textMuted/30 hover:border-nu-text text-nu-textMuted hover:text-nu-text font-semibold rounded-lg transition-all flex items-center justify-center">
                {content.hero.ctaJoin}
              </button>
           </div>
 
           {/* Stats / Keywords HUD */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl border-t border-slate-800 pt-8">
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl border-t border-nu-border pt-8">
             {content.hero.keywords.map((item, i) => (
-              <div key={i} className="flex flex-col items-center justify-center p-4 rounded-xl bg-nu-surface/50 border border-slate-800 hover:border-slate-600 transition-colors backdrop-blur-sm group cursor-default">
-                <div className="mb-2 p-2 rounded-full bg-nu-dark group-hover:bg-slate-700 transition-colors">
+              <div key={i} className="flex flex-col items-center justify-center p-4 rounded-xl bg-nu-surface/50 border border-nu-border hover:border-nu-textMuted transition-colors backdrop-blur-sm group cursor-default">
+                <div className="mb-2 p-2 rounded-full bg-nu-dark group-hover:bg-nu-surface transition-colors">
                   {i === 0 && <Dna className="text-nu-accent w-6 h-6"/>}
                   {i === 1 && <Smartphone className="text-nu-tech w-6 h-6"/>}
                   {i === 2 && <Cpu className="text-purple-400 w-6 h-6"/>}
@@ -1068,12 +1119,12 @@ function App() {
                    className={`relative p-6 rounded-xl border transition-all duration-300 cursor-pointer group ${
                      missionMode === 'bio' 
                        ? 'bg-nu-primary/20 border-nu-accent/50 shadow-[0_0_20px_rgba(16,185,129,0.1)]' 
-                       : 'bg-nu-dark/30 border-slate-700 hover:bg-nu-dark/50'
+                       : 'bg-nu-dark/30 border-nu-border hover:bg-nu-dark/50'
                    }`}
                 >
                    {missionMode === 'bio' && <div className="absolute left-0 top-0 bottom-0 w-1 bg-nu-accent rounded-l-xl"></div>}
                    <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-lg ${missionMode === 'bio' ? 'bg-nu-accent/20 text-nu-accent' : 'bg-slate-700 text-slate-400'}`}>
+                      <div className={`p-3 rounded-lg ${missionMode === 'bio' ? 'bg-nu-accent/20 text-nu-accent' : 'bg-nu-surface text-nu-textMuted'}`}>
                          <Dna className="w-6 h-6" />
                       </div>
                       <div>
@@ -1091,12 +1142,12 @@ function App() {
                    className={`relative p-6 rounded-xl border transition-all duration-300 cursor-pointer group ${
                      missionMode === 'health' 
                        ? 'bg-nu-tech/20 border-nu-tech/50 shadow-[0_0_20px_rgba(6,182,212,0.1)]' 
-                       : 'bg-nu-dark/30 border-slate-700 hover:bg-nu-dark/50'
+                       : 'bg-nu-dark/30 border-nu-border hover:bg-nu-dark/50'
                    }`}
                 >
                    {missionMode === 'health' && <div className="absolute left-0 top-0 bottom-0 w-1 bg-nu-tech rounded-l-xl"></div>}
                    <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-lg ${missionMode === 'health' ? 'bg-nu-tech/20 text-nu-tech' : 'bg-slate-700 text-slate-400'}`}>
+                      <div className={`p-3 rounded-lg ${missionMode === 'health' ? 'bg-nu-tech/20 text-nu-tech' : 'bg-nu-surface text-nu-textMuted'}`}>
                          <HeartPulse className="w-6 h-6" />
                       </div>
                       <div>
@@ -1112,7 +1163,7 @@ function App() {
 
             {/* Right Column: Dynamic Visual Canvas */}
             <ScrollReveal className="order-1 lg:order-2">
-               <div className="relative aspect-video lg:aspect-square w-full bg-nu-dark rounded-2xl overflow-hidden border border-slate-800 shadow-2xl transition-colors duration-700">
+               <div className="relative aspect-video lg:aspect-square w-full bg-nu-dark rounded-2xl overflow-hidden border border-nu-border shadow-2xl transition-colors duration-700">
                   {/* The Dynamic Canvas */}
                   <MissionCanvas mode={missionMode} />
                   
@@ -1124,7 +1175,7 @@ function App() {
                      </span>
                   </div>
                   
-                  <div className="absolute bottom-4 right-4 bg-nu-surface/80 backdrop-blur px-3 py-1 rounded border border-slate-700">
+                  <div className="absolute bottom-4 right-4 bg-nu-surface/80 backdrop-blur px-3 py-1 rounded border border-nu-border">
                      <span className="text-xs font-mono text-nu-textMuted">
                        MODE: <span className={missionMode === 'bio' ? 'text-nu-accent' : 'text-nu-tech'}>{missionMode.toUpperCase()}</span>
                      </span>
@@ -1141,13 +1192,13 @@ function App() {
         <ElegantBackground type={activeDomain === 'comp-bio' ? 'molecules' : 'matrix'} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
            <ScrollReveal>
-             <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-800 pb-8">
+             <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-nu-border pb-8">
                 <div>
                   <h2 className="text-3xl md:text-5xl font-bold text-nu-text mb-2">{content.research.title}</h2>
                   <p className="text-nu-textMuted font-mono text-sm">{content.research.subtitle}</p>
                 </div>
                 
-                <div className="flex bg-nu-surface p-1 rounded-lg border border-slate-700 mt-6 md:mt-0">
+                <div className="flex bg-nu-surface p-1 rounded-lg border border-nu-border mt-6 md:mt-0">
                    {content.research.domains.map(domain => (
                      <button
                        key={domain.id}
@@ -1155,7 +1206,7 @@ function App() {
                        className={`px-4 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
                          activeDomain === domain.id
                            ? (domain.id === 'comp-bio' ? 'bg-nu-accent/20 text-nu-accent border border-nu-accent/50' : 'bg-nu-tech/20 text-nu-tech border border-nu-tech/50')
-                           : 'text-nu-textMuted hover:text-nu-text hover:bg-slate-800'
+                           : 'text-nu-textMuted hover:text-nu-text hover:bg-nu-dark'
                        }`}
                      >
                        {domain.id === 'comp-bio' ? <Dna className="w-4 h-4"/> : <Smartphone className="w-4 h-4"/>}
@@ -1171,7 +1222,7 @@ function App() {
              <div key={domain.id} className={`${activeDomain === domain.id ? 'block animate-fade-in-up' : 'hidden'}`}>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {domain.projects.map((project) => (
-                    <div key={project.id} className="group relative bg-nu-surface rounded-xl overflow-hidden border border-slate-800 hover:border-slate-600 transition-all duration-300 h-[400px] flex flex-col">
+                    <div key={project.id} className="group relative bg-nu-surface rounded-xl overflow-hidden border border-nu-border hover:border-nu-textMuted transition-all duration-300 h-[400px] flex flex-col">
                       
                       {/* Image Area with "Data View" overlay */}
                       <div className="relative h-48 overflow-hidden">
@@ -1210,7 +1261,7 @@ function App() {
                         
                         <div className="flex flex-wrap gap-2 mt-auto pt-4">
                           {project.tags?.slice(1).map((tag, idx) => (
-                            <span key={idx} className="px-2 py-1 bg-nu-dark text-nu-textMuted text-[10px] uppercase font-bold tracking-wider rounded border border-slate-700">
+                            <span key={idx} className="px-2 py-1 bg-nu-dark text-nu-textMuted text-[10px] uppercase font-bold tracking-wider rounded border border-nu-border">
                               {tag}
                             </span>
                           ))}
@@ -1229,7 +1280,7 @@ function App() {
       </section>
 
       {/* COMPUTING RESOURCES SECTION */}
-      <section id={SectionId.COMPUTING} className="py-24 bg-nu-surface border-t border-slate-900 transition-colors duration-700 relative overflow-hidden">
+      <section id={SectionId.COMPUTING} className="py-24 bg-nu-surface border-t border-nu-border transition-colors duration-700 relative overflow-hidden">
         <ElegantBackground type="circuit" />
         <div className="absolute right-0 top-0 w-1/2 h-full bg-nu-dark/30 skew-x-12 transform origin-top-right pointer-events-none z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1245,13 +1296,13 @@ function App() {
             <ScrollReveal className="space-y-8">
               <div className="flex items-center gap-3 mb-6">
                 <Database className="text-nu-accent w-6 h-6" />
-                <h3 className="text-2xl font-bold text-white">{content.computing.igcoreTitle}</h3>
+                <h3 className="text-2xl font-bold text-nu-text">{content.computing.igcoreTitle}</h3>
               </div>
 
               {/* Stats Row */}
               <div className="grid grid-cols-3 gap-4 mb-8">
                 {IGCORE_SPECS.stats.map((stat, i) => (
-                  <div key={i} className="bg-nu-dark/50 border border-slate-700 p-4 rounded-lg text-center backdrop-blur-sm">
+                  <div key={i} className="bg-nu-dark/50 border border-nu-border p-4 rounded-lg text-center backdrop-blur-sm">
                     <div className="text-2xl font-bold text-nu-accent font-mono">{stat.value}</div>
                     <div className="text-xs text-nu-textMuted uppercase tracking-wider mt-1">{stat.label}</div>
                   </div>
@@ -1259,21 +1310,21 @@ function App() {
               </div>
 
               {/* Visual Server Racks */}
-              <div className="bg-nu-dark border border-slate-800 rounded-xl p-6 relative overflow-hidden">
-                 <div className="absolute top-0 right-0 p-2 text-[10px] font-mono text-slate-500">SYSTEM_STATUS: ONLINE</div>
+              <div className="bg-nu-dark border border-nu-border rounded-xl p-6 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 p-2 text-[10px] font-mono text-nu-textMuted">SYSTEM_STATUS: ONLINE</div>
                  <div className="space-y-4">
                     {IGCORE_SPECS.nodes.map((node, i) => (
                       <div key={i} className="flex items-center gap-4 group">
-                        <div className="w-12 h-12 bg-slate-800 rounded flex items-center justify-center border border-slate-700 group-hover:border-nu-accent/50 transition-colors">
-                           <Server className="w-6 h-6 text-slate-400 group-hover:text-nu-accent" />
+                        <div className="w-12 h-12 bg-nu-surface rounded flex items-center justify-center border border-nu-border group-hover:border-nu-accent/50 transition-colors">
+                           <Server className="w-6 h-6 text-nu-textMuted group-hover:text-nu-accent" />
                         </div>
                         <div className="flex-1">
                           <div className="flex justify-between items-baseline">
-                            <h4 className="font-bold text-sm text-white">{node.type}</h4>
+                            <h4 className="font-bold text-sm text-nu-text">{node.type}</h4>
                             <span className="text-xs font-mono text-nu-accent">{node.count} Nodes</span>
                           </div>
-                          <div className="text-xs text-slate-400 font-mono mt-1">{node.specs}</div>
-                          <div className="mt-2 w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                          <div className="text-xs text-nu-textMuted font-mono mt-1">{node.specs}</div>
+                          <div className="mt-2 w-full bg-nu-surface h-1 rounded-full overflow-hidden">
                             <div className="h-full bg-nu-accent/50 w-3/4 animate-pulse"></div>
                           </div>
                         </div>
@@ -1287,10 +1338,10 @@ function App() {
             <ScrollReveal className="flex flex-col h-full delay-100">
                <div className="flex items-center gap-3 mb-6">
                 <Terminal className="text-nu-tech w-6 h-6" />
-                <h3 className="text-2xl font-bold text-white">{content.computing.daikoTitle}</h3>
+                <h3 className="text-2xl font-bold text-nu-text">{content.computing.daikoTitle}</h3>
               </div>
               
-              <div className="flex-1 bg-black/80 rounded-xl border border-slate-700 font-mono text-sm shadow-2xl overflow-hidden flex flex-col">
+              <div className="flex-1 bg-black/80 rounded-xl border border-nu-border font-mono text-sm shadow-2xl overflow-hidden flex flex-col">
                 {/* Terminal Header */}
                 <div className="bg-slate-800 px-4 py-2 flex items-center gap-2 border-b border-slate-700">
                   <div className="flex gap-1.5">
@@ -1346,15 +1397,15 @@ function App() {
           </div>
 
           {/* DIGITAL HEALTH DEVICES SUBSECTION */}
-          <ScrollReveal className="border-t border-slate-800 pt-16">
+          <ScrollReveal className="border-t border-nu-border pt-16">
              <div className="flex items-center gap-3 mb-8">
                <Glasses className="text-nu-tech w-8 h-8" />
-               <h3 className="text-2xl md:text-3xl font-bold text-white">{content.computing.deviceTitle}</h3>
+               <h3 className="text-2xl md:text-3xl font-bold text-nu-text">{content.computing.deviceTitle}</h3>
              </div>
 
              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {content.devices.list.map((device) => (
-                  <div key={device.id} className="bg-nu-dark border border-slate-800 rounded-xl p-6 hover:border-nu-tech/50 transition-all group relative overflow-hidden">
+                  <div key={device.id} className="bg-nu-dark border border-nu-border rounded-xl p-6 hover:border-nu-tech/50 transition-all group relative overflow-hidden">
                     {/* Tech Decoration */}
                     <div className="absolute top-0 right-0 p-2">
                       <div className="w-2 h-2 bg-nu-tech rounded-full animate-pulse"></div>
@@ -1369,17 +1420,17 @@ function App() {
                         {device.id === 'biosignal' && <HeartPulse className="w-6 h-6" />}
                       </div>
                       <div>
-                        <h4 className="font-bold text-white leading-tight">{device.name}</h4>
+                        <h4 className="font-bold text-nu-text leading-tight">{device.name}</h4>
                         <span className="text-xs text-nu-textMuted block">{device.productName}</span>
                       </div>
                     </div>
 
-                    <p className="text-sm text-slate-400 mb-4 line-clamp-3">
+                    <p className="text-sm text-nu-textMuted mb-4 line-clamp-3">
                       {device.description}
                     </p>
                     
                     {/* Location & Notes */}
-                    <div className="space-y-2 text-xs font-mono text-slate-500 border-t border-slate-800 pt-4">
+                    <div className="space-y-2 text-xs font-mono text-nu-textMuted border-t border-nu-border pt-4">
                        <div className="flex items-center gap-2">
                           <MapPin className="w-3 h-3" />
                           <span>{device.location}</span>
@@ -1394,11 +1445,11 @@ function App() {
                     
                     {/* Special Section for Biosignal Sensors */}
                     {device.sensors && (
-                      <div className="mt-4 pt-4 border-t border-slate-800">
+                      <div className="mt-4 pt-4 border-t border-nu-border">
                         <span className="text-xs font-bold text-nu-tech block mb-2">SENSORS_DETECTED:</span>
                         <div className="flex flex-wrap gap-1.5">
                           {device.sensors.map((sensor, idx) => (
-                            <span key={idx} className="px-1.5 py-0.5 bg-slate-800 text-[10px] text-slate-300 rounded border border-slate-700">
+                            <span key={idx} className="px-1.5 py-0.5 bg-nu-surface text-[10px] text-nu-textMuted rounded border border-nu-border">
                               {sensor}
                             </span>
                           ))}
@@ -1427,15 +1478,15 @@ function App() {
            <div className="grid lg:grid-cols-3 gap-8 items-stretch relative">
              
              {/* 1. Develop (Workbench) */}
-             <ScrollReveal className="bg-nu-surface/50 border border-slate-800 p-8 rounded-2xl backdrop-blur-sm hover:border-blue-500/50 transition-all group flex flex-col h-full z-10 relative">
+             <ScrollReveal className="bg-nu-surface/50 border border-nu-border p-8 rounded-2xl backdrop-blur-sm hover:border-blue-500/50 transition-all group flex flex-col h-full z-10 relative">
                 <div className="w-16 h-16 bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30 group-hover:scale-110 transition-transform">
                    <Code2 className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{content.dataScience.workbench.title}</h3>
-                <p className="text-slate-400 mb-6 text-sm flex-grow">{content.dataScience.workbench.desc}</p>
+                <h3 className="text-xl font-bold text-nu-text mb-2">{content.dataScience.workbench.title}</h3>
+                <p className="text-nu-textMuted mb-6 text-sm flex-grow">{content.dataScience.workbench.desc}</p>
                 <ul className="space-y-2">
                    {content.dataScience.workbench.features.map((feat, i) => (
-                     <li key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                     <li key={i} className="flex items-center gap-2 text-xs text-nu-textMuted">
                         <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
                         {feat}
                      </li>
@@ -1444,20 +1495,20 @@ function App() {
                 
                 {/* Connector Arrow (Desktop) */}
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                   <ChevronRight className="w-8 h-8 text-slate-700 animate-pulse" />
+                   <ChevronRight className="w-8 h-8 text-nu-textMuted animate-pulse" />
                 </div>
              </ScrollReveal>
 
              {/* 2. Scale (Pipelines) */}
-             <ScrollReveal className="bg-nu-surface/50 border border-slate-800 p-8 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all group flex flex-col h-full z-10 delay-100 relative">
+             <ScrollReveal className="bg-nu-surface/50 border border-nu-border p-8 rounded-2xl backdrop-blur-sm hover:border-purple-500/50 transition-all group flex flex-col h-full z-10 delay-100 relative">
                 <div className="w-16 h-16 bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/30 group-hover:scale-110 transition-transform">
                    <Workflow className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{content.dataScience.pipelines.title}</h3>
-                <p className="text-slate-400 mb-6 text-sm flex-grow">{content.dataScience.pipelines.desc}</p>
+                <h3 className="text-xl font-bold text-nu-text mb-2">{content.dataScience.pipelines.title}</h3>
+                <p className="text-nu-textMuted mb-6 text-sm flex-grow">{content.dataScience.pipelines.desc}</p>
                 <ul className="space-y-2">
                    {content.dataScience.pipelines.features.map((feat, i) => (
-                     <li key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                     <li key={i} className="flex items-center gap-2 text-xs text-nu-textMuted">
                         <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
                         {feat}
                      </li>
@@ -1466,20 +1517,20 @@ function App() {
 
                 {/* Connector Arrow (Desktop) */}
                 <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
-                   <ChevronRight className="w-8 h-8 text-slate-700 animate-pulse" />
+                   <ChevronRight className="w-8 h-8 text-nu-textMuted animate-pulse" />
                 </div>
              </ScrollReveal>
 
              {/* 3. Deploy (Connect) */}
-             <ScrollReveal className="bg-nu-surface/50 border border-slate-800 p-8 rounded-2xl backdrop-blur-sm hover:border-orange-500/50 transition-all group flex flex-col h-full z-10 delay-200">
+             <ScrollReveal className="bg-nu-surface/50 border border-nu-border p-8 rounded-2xl backdrop-blur-sm hover:border-orange-500/50 transition-all group flex flex-col h-full z-10 delay-200">
                 <div className="w-16 h-16 bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6 border border-orange-500/30 group-hover:scale-110 transition-transform">
                    <Share2 className="w-8 h-8 text-orange-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{content.dataScience.connect.title}</h3>
-                <p className="text-slate-400 mb-6 text-sm flex-grow">{content.dataScience.connect.desc}</p>
+                <h3 className="text-xl font-bold text-nu-text mb-2">{content.dataScience.connect.title}</h3>
+                <p className="text-nu-textMuted mb-6 text-sm flex-grow">{content.dataScience.connect.desc}</p>
                 <ul className="space-y-2">
                    {content.dataScience.connect.features.map((feat, i) => (
-                     <li key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                     <li key={i} className="flex items-center gap-2 text-xs text-nu-textMuted">
                         <div className="w-1 h-1 bg-orange-500 rounded-full"></div>
                         {feat}
                      </li>
@@ -1490,16 +1541,16 @@ function App() {
            </div>
 
            {/* Frameworks Bar */}
-           <ScrollReveal className="mt-16 pt-8 border-t border-slate-800 flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+           <ScrollReveal className="mt-16 pt-8 border-t border-nu-border flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
               {['R', 'Python', 'Nextflow', 'nf-core', 'Quarto', 'Shiny', 'Jupyter'].map((tool, i) => (
-                 <span key={i} className="text-xl font-bold text-slate-400 hover:text-white transition-colors cursor-default">{tool}</span>
+                 <span key={i} className="text-xl font-bold text-nu-textMuted hover:text-nu-text transition-colors cursor-default">{tool}</span>
               ))}
            </ScrollReveal>
          </div>
       </section>
 
       {/* Publications: Timeline Style */}
-      <section id={SectionId.PUBLICATIONS} className="py-24 bg-nu-surface border-t border-slate-900 transition-colors duration-700 relative overflow-hidden">
+      <section id={SectionId.PUBLICATIONS} className="py-24 bg-nu-surface border-t border-nu-border transition-colors duration-700 relative overflow-hidden">
          <ElegantBackground type="timeline" />
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-nu-text mb-12 flex items-center gap-4">
@@ -1507,18 +1558,18 @@ function App() {
               {content.publications.title}
             </h2>
             
-            <div className="relative border-l border-slate-800 ml-4 space-y-12">
+            <div className="relative border-l border-nu-border ml-4 space-y-12">
                {groupedPublications.map(({ year, pubs }) => (
                  <div key={year} className="relative pl-8 md:pl-12">
                    {/* Timeline Dot */}
                    <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-600 ring-4 ring-nu-surface"></div>
                    
-                   <h3 className="text-4xl font-bold text-slate-800 absolute -top-4 -left-4 -z-10 select-none opacity-50">{year}</h3>
+                   <h3 className="text-4xl font-bold text-slate-500/20 absolute -top-4 -left-4 -z-10 select-none opacity-50">{year}</h3>
                    <div className="text-xl font-bold text-nu-accent mb-6 font-mono">{year}</div>
                    
                    <div className="grid gap-4">
                      {pubs.map((pub) => (
-                       <div key={pub.id} className="group flex flex-col md:flex-row gap-4 p-4 rounded-lg hover:bg-nu-dark transition-colors border border-transparent hover:border-slate-800 bg-nu-dark/30 backdrop-blur-sm">
+                       <div key={pub.id} className="group flex flex-col md:flex-row gap-4 p-4 rounded-lg hover:bg-nu-dark transition-colors border border-transparent hover:border-nu-border bg-nu-dark/30 backdrop-blur-sm">
                           <div className="flex-shrink-0 pt-1">
                              {pub.tag === 'Journal' && <FileText className="w-5 h-5 text-emerald-500" />}
                              {pub.tag === 'Preprint' && <Layers className="w-5 h-5 text-blue-500" />}
@@ -1526,7 +1577,7 @@ function App() {
                              {pub.tag === 'Book' && <BookOpen className="w-5 h-5 text-purple-500" />}
                           </div>
                           <div className="flex-grow">
-                             <h3 className="text-base font-semibold text-nu-text mb-1 group-hover:text-white leading-snug">
+                             <h3 className="text-base font-semibold text-nu-text mb-1 group-hover:text-nu-primary transition-colors leading-snug">
                                {pub.title}
                              </h3>
                              <p className="text-nu-textMuted text-sm mb-2">{pub.authors}</p>
@@ -1536,7 +1587,7 @@ function App() {
                              </div>
                           </div>
                           <div className="hidden md:flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                             <ExternalLink className="w-4 h-4 text-nu-textMuted hover:text-white cursor-pointer" />
+                             <ExternalLink className="w-4 h-4 text-nu-textMuted hover:text-nu-text cursor-pointer" />
                           </div>
                        </div>
                      ))}
@@ -1558,8 +1609,8 @@ function App() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {content.members.list.map((member) => (
-              <ScrollReveal key={member.id} className="group bg-nu-surface rounded-xl overflow-hidden border border-slate-800 hover:border-nu-accent/50 transition-all duration-300">
-                <div className="relative aspect-square overflow-hidden bg-slate-800">
+              <ScrollReveal key={member.id} className="group bg-nu-surface rounded-xl overflow-hidden border border-nu-border hover:border-nu-accent/50 transition-all duration-300">
+                <div className="relative aspect-square overflow-hidden bg-nu-dark">
                   <img 
                     src={member.image} 
                     alt={member.name} 
@@ -1572,7 +1623,7 @@ function App() {
                      <h3 className="font-bold text-lg text-white">{member.name}</h3>
                   </div>
                 </div>
-                <div className="p-4 border-t border-slate-800">
+                <div className="p-4 border-t border-nu-border">
                   <p className="text-nu-textMuted text-xs leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">
                     {member.description}
                   </p>
@@ -1584,7 +1635,7 @@ function App() {
       </section>
 
       {/* Footer / Access */}
-      <footer className="bg-nu-surface py-12 border-t border-slate-800 text-nu-textMuted text-sm font-mono transition-colors duration-700">
+      <footer className="bg-nu-surface py-12 border-t border-nu-border text-nu-textMuted text-sm font-mono transition-colors duration-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid md:grid-cols-2 gap-8 mb-12">
              <div className="space-y-4">
@@ -1592,7 +1643,7 @@ function App() {
                 <p>{content.affiliation}</p>
                 <div className="flex gap-2 items-center">
                    <Mail className="w-4 h-4"/>
-                   <a href="mailto:contact@matsui-lab.nagoya" className="hover:text-white transition-colors">contact@matsui-lab.nagoya</a>
+                   <a href="mailto:contact@matsui-lab.nagoya" className="hover:text-nu-text transition-colors">contact@matsui-lab.nagoya</a>
                 </div>
              </div>
              <div className="space-y-4">
@@ -1609,7 +1660,7 @@ function App() {
              </div>
            </div>
 
-           <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+           <div className="border-t border-nu-border pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
              <div className="flex gap-6 items-center">
                <span className="w-2 h-2 rounded-full bg-nu-accent animate-pulse"></span>
                <span>{content.footer.system}</span>

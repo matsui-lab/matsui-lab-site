@@ -11,6 +11,8 @@ export enum SectionId {
 
 export type Language = 'en' | 'jp';
 
+export type ThemeMode = 'light' | 'dark' | 'auto';
+
 export interface Theme {
   name: string;
   colors: {
@@ -22,6 +24,7 @@ export interface Theme {
     surface: string;
     text: string;
     textMuted: string;
+    border: string;
   };
 }
 
