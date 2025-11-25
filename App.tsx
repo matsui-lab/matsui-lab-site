@@ -1681,10 +1681,24 @@ function App() {
             <Mail className="w-5 h-5" />
             <span>contact@matsui-lab.nagoya</span>
           </a>
-        </div>
-      </section>
+              </div>
+            </section>
 
-      {/* --- THEME GENERATOR UI --- */}
+            {/* Hidden SEO Text Block for JP/EN Keywords */}
+            <section style={{display: 'none'}} aria-hidden="true">
+              <h2>松井佑介研究室 / Matsui Laboratory</h2>
+              <p>
+                名古屋大学 医学系研究科 総合保健学専攻 iGCORE（糖鎖生命コア研究所）に所属し、
+                マルチオミクス解析、バイオインフォマティクス、情報科学、統計科学、AI、機械学習、
+                ニューロインフォマティクス、リハビリテーション科学、計算健康科学の研究を推進しています。
+          
+                The Matsui Laboratory at Nagoya University's Graduate School of Medicine and iGCORE specializes in
+                Computational Health Sciences, Multi-omics, Bioinformatics, Machine Learning, AI, Neuroinformatics,
+                Digital Health, Rehabilitation Science, and Statistical Science.
+              </p>
+            </section>
+
+            {/* --- THEME GENERATOR UI --- */}
       <div className="fixed bottom-6 left-6 z-50">
         {showThemeGen ? (
           <div className="bg-white rounded-2xl shadow-2xl p-4 w-72 mb-4 animate-fade-in-up border border-slate-200">
