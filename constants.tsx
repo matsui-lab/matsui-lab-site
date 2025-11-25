@@ -998,7 +998,7 @@ export const contentJP: LabContent = {
     titlePrefix: "計算",
     titleOmics: "健康",
     titleTwin: "科学",
-    subtitle: "計算生物学とデジタル健康学の融合により、分子から身体までをつなぐ「データ駆動型ヘルスサイエンス」を開拓しています。",
+    subtitle: "名古屋大学 医学系研究科 iGCOREにて、マルチオミクス、バイオインフォマティクス、AI・機械学習を駆使した計算健康科学により、分子から身体までをつなぐ「データ駆動型ヘルスサイエンス」を開拓しています。",
     ctaResearch: "研究内容を見る",
     ctaJoin: "研究室に参加する",
     keywords: [
