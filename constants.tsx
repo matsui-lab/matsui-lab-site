@@ -713,7 +713,7 @@ export const contentEN: LabContent = {
             title: "Network Medicine for Aging Muscle",
             subtitle: "Network Mechanisms Suppressing Fat Accumulation",
             description: "We compared gene networks across physical activity conditions using mouse skeletal muscle data. We identified PGC-1α as a core factor in the fat differentiation suppression network.",
-            image: "https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=800",
+            image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
             tags: ["Network Analysis", "Metabolism"]
           },
           {
@@ -1052,7 +1052,7 @@ export const contentJP: LabContent = {
             title: "Network Medicine for Aging Muscle",
             subtitle: "加齢筋の脂肪蓄積を抑えるネットワーク機構",
             description: "マウス骨格筋データで身体活動条件間の遺伝子ネットワークを比較し、PGC-1αが脂肪分化抑制ネットワークの中核因子として機能していることを特定しました。",
-            image: "https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=800",
+            image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
             tags: ["Network Analysis", "Metabolism"]
           },
           {
