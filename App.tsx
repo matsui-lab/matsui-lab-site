@@ -1688,13 +1688,17 @@ function App() {
             <section style={{display: 'none'}} aria-hidden="true">
               <h2>松井佑介研究室 / Matsui Laboratory</h2>
               <p>
+                松井佑介 名古屋大学 准教授。松井研究室 医学系研究科 総合保健学専攻。
                 名古屋大学 医学系研究科 総合保健学専攻 iGCORE（糖鎖生命コア研究所）に所属し、
                 マルチオミクス解析、バイオインフォマティクス、情報科学、統計科学、AI、機械学習、
                 ニューロインフォマティクス、リハビリテーション科学、計算健康科学の研究を推進しています。
-          
+                松井 名古屋大 研究室。Yusuke Matsui Nagoya University Associate Professor.
+              </p>
+              <p>
                 The Matsui Laboratory at Nagoya University's Graduate School of Medicine and iGCORE specializes in
                 Computational Health Sciences, Multi-omics, Bioinformatics, Machine Learning, AI, Neuroinformatics,
                 Digital Health, Rehabilitation Science, and Statistical Science.
+                Dr. Yusuke Matsui leads research in biomedical informatics, health informatics, and computational biology.
               </p>
             </section>
 
