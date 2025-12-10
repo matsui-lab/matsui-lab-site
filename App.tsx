@@ -1056,8 +1056,22 @@ function App() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-nu-tech to-blue-400">{content.hero.titleTwin}</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-nu-textMuted leading-relaxed mb-10 font-light">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-nu-textMuted leading-relaxed mb-4 font-light">
             {content.hero.subtitle}
+          </p>
+          
+          <p className="text-neutral-600 dark:text-neutral-400 mt-4 mb-2 max-w-2xl mx-auto text-base leading-relaxed">
+            松井佑介（名古屋大学・医学系研究科）が主宰する松井研究室では、
+            計算健康科学、AI、マルチオミクス解析、バイオインフォマティクスなど、
+            データ駆動型の生命医科学研究を推進しています。
+          </p>
+          
+          <p className="text-neutral-600 dark:text-neutral-400 mt-2 mb-10 max-w-2xl mx-auto text-base leading-relaxed">
+            本研究室は、AI for Science、研究DX、スーパーコンピューターを活用した
+            ビッグデータ解析やマルチオミクス解析、R/Bioconductorによるヘルスデータ解析、
+            さらにはEEG・EMGなどの生体センシングを含むマルチモーダルデータ解析を専門としています。
+            医療・保健科学領域において、認知症、がん、子癇前症、老化、サルコペニア、老年疾患、リハビリテーション、運動生理学、
+            デジタルヘルスなど多様なテーマに取り組んでいます。
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto">
@@ -1693,6 +1707,26 @@ function App() {
                 マルチオミクス解析、バイオインフォマティクス、情報科学、統計科学、AI、機械学習、
                 ニューロインフォマティクス、リハビリテーション科学、計算健康科学の研究を推進しています。
                 松井 名古屋大 研究室。Yusuke Matsui Nagoya University Associate Professor.
+              </p>
+              <p>
+                松井研究室では、研究DX、AI、AI for Science、機械学習、深層学習、統計科学、情報工学を基盤とし、
+                スーパーコンピューターやクラスターコンピューターを用いたビッグデータ解析を推進しています。
+                特に、Nextflow や高性能計算（HPC）環境を活用したゲノミクス、トランスクリプトミクス、プロテオミクス、
+                メタボロミクス、グリコミクスなどのマルチオミクス解析、R / Bioconductor による大規模データ解析、
+                生物医学のメタアナリシスも実施しています。
+              </p>
+              <p>
+                また、EEG、EMG、EOG、ECG、EDAなどの生体センシングデータ、マルチモーダルセンサーを用いた
+                運動生理学・運動オミクス研究、デジタルヘルス・モバイルヘルス、デジタルツイン研究も含みます。
+                バイオインフォマティクス、ヘルスインフォマティクス、ニューロインフォマティクスなど
+                インフォマティクス全般を専門としています。
+              </p>
+              <p>
+                医療・保健科学領域では、認知症研究、がん研究、子癇前症研究、老化研究、サルコペニア研究など
+                多岐にわたるテーマで研究を展開しています。レジリエンス研究として、認知症レジリエンス、
+                ストレスレジリエンス、サルコペニアレジリエンスにも取り組んでいます。
+                リハビリテーション科学、保健科学、運動生理学、ビッグデータ認識論の観点から
+                データ駆動型の健康科学研究を推進しています。
               </p>
               <p>
                 The Matsui Laboratory at Nagoya University's Graduate School of Medicine and iGCORE specializes in
