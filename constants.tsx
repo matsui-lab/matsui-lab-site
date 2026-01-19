@@ -45,7 +45,7 @@ export const PUBLICATIONS: Publication[] = [
     year: 2025,
     title: 'Integrative Network Analysis Reveals Novel Moderators of Aβ–Tau Interaction in Alzheimer\'s Disease',
     authors: 'Akihiro Kitani, Yusuke Matsui',
-    journal: 'Alzheimer's Research & Therapy',
+    journal: 'Alzheimer\'s Research & Therapy',
     citation: '17(1): 70',
     tag: 'Journal'
   },
