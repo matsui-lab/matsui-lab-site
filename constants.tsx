@@ -45,9 +45,27 @@ export const PUBLICATIONS: Publication[] = [
     year: 2025,
     title: 'Integrative Network Analysis Reveals Novel Moderators of Aβ–Tau Interaction in Alzheimer\'s Disease',
     authors: 'Akihiro Kitani, Yusuke Matsui',
-    journal: 'Alzheimer’s Research & Therapy',
+    journal: 'Alzheimer's Research & Therapy',
     citation: '17(1): 70',
     tag: 'Journal'
+  },
+  {
+    id: '2025-2',
+    year: 2025,
+    title: 'GlycanGT: A Foundation Model for Glycan Graphs with Pretrained Representation and Generative Learning',
+    authors: 'Akihiro Kitani, Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
+    journal: 'bioRxiv',
+    citation: '10.64898/2025.12.14.694171',
+    tag: 'Preprint'
+  },
+  {
+    id: '2025-3',
+    year: 2025,
+    title: 'GlycoTraitR: an R package for characterizing structural heterogeneity in N-linked glycoproteomics data',
+    authors: 'Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
+    journal: 'bioRxiv',
+    citation: '10.64898/2025.12.16.694754',
+    tag: 'Preprint'
   },
   // 2024
   {
