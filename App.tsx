@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import Navbar from './components/Navbar';
 import GeminiAssistant from './components/GeminiAssistant';
+import EmailImage from './components/EmailImage';
 import { CONTENT, PUBLICATIONS, IGCORE_SPECS, DAIKO_SERVERS, DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from './constants';
 import { SectionId, Language, Theme, ServerSpec, ThemeMode } from './types';
 import { generateThemeFromMood } from './services/geminiService';
@@ -1643,7 +1644,7 @@ function App() {
                 <p>{content.affiliation}</p>
                 <div className="flex gap-2 items-center">
                    <Mail className="w-4 h-4"/>
-                   <a href="mailto:contact@matsui-lab.nagoya" className="hover:text-nu-text transition-colors">contact@matsui-lab.nagoya</a>
+                   <EmailImage height={16} color="#9ca3af" />
                 </div>
              </div>
              <div className="space-y-4">
@@ -1677,10 +1678,10 @@ function App() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-nu-text mb-6">{content.contact.title}</h2>
           <p className="text-nu-textMuted mb-8">{content.contact.subtitle}</p>
-          <a href="mailto:contact@matsui-lab.nagoya" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white transition-all backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 border border-white/10 text-white backdrop-blur-md">
             <Mail className="w-5 h-5" />
-            <span>contact@matsui-lab.nagoya</span>
-          </a>
+            <EmailImage height={20} color="#ffffff" />
+          </div>
               </div>
             </section>
 
