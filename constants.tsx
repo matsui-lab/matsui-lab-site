@@ -78,11 +78,12 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: '2024-2',
-    year: 2024,
+    year: 2025,
     title: 'HuTAge: A Comprehensive Human Tissue- and Cell-specific Ageing Signature Atlas',
     authors: 'Koichi Himori, Bingyuan Zhang, Kazuki Hatta, Yusuke Matsui',
-    journal: 'Preprint / In Press',
-    tag: 'Preprint'
+    journal: 'Bioinformatics Advances',
+    citation: '5(1): vbaf072',
+    tag: 'Journal'
   },
   {
     id: '2024-3',
@@ -139,10 +140,11 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: '2023-2',
-    year: 2023,
+    year: 2025,
     title: 'Network-Based Systematic Dissection of Exercise-Induced Inhibition of Myosteatosis in Older Individuals',
     authors: 'Hirotaka Iijima, Fabrisia Ambrosio, Yusuke Matsui',
-    journal: 'The Journal of Physiology',
+    journal: 'J Physiol',
+    citation: '603(1): 45-67',
     tag: 'Journal'
   },
   {
@@ -153,15 +155,7 @@ export const PUBLICATIONS: Publication[] = [
     journal: 'Preprint / In Press',
     tag: 'Preprint'
   },
-  {
-    id: '2023-4',
-    year: 2023,
-    title: 'Pgc-1α Is an Exercise-Responsive Regulator of Myosteatosis in Older Individuals',
-    authors: 'Hirotaka Iijima, Fabrisia Ambrosio, Yusuke Matsui',
-    journal: 'Preprint / In Press',
-    tag: 'Preprint'
-  },
-  {
+    {
     id: '2023-5',
     year: 2023,
     title: 'Network-Based Cytokine Inference Implicates Oncostatin M as a Driver for Inflammation Phenotype of Knee Osteoarthritis',
