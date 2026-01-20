@@ -112,11 +112,12 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: '2024-6',
-    year: 2024,
+    year: 2025,
     title: 'Systematic Identification of Exercise-Induced Anti-Aging Processes Involving Intron Retention',
-    authors: 'Hayata Kodama, Hirotaka Ijima, Yusuke Matsui',
-    journal: 'Preprint / In Press',
-    tag: 'Preprint'
+    authors: 'Hayata Kodama, Hirotaka Iijima, Yusuke Matsui',
+    journal: 'J Gerontol A Biol Sci Med Sci',
+    citation: '80(8): glaf146',
+    tag: 'Journal'
   },
   {
     id: '2024-7',
