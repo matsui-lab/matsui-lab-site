@@ -157,11 +157,12 @@ export const PUBLICATIONS: Publication[] = [
   },
     {
     id: '2023-5',
-    year: 2023,
-    title: 'Network-Based Cytokine Inference Implicates Oncostatin M as a Driver for Inflammation Phenotype of Knee Osteoarthritis',
+    year: 2024,
+    title: 'Network-Based Cytokine Inference Implicates Oncostatin M as a Driver of an Inflammation Phenotype in Knee Osteoarthritis',
     authors: 'Hirotaka Iijima, Fan Zhang, Fabrisia Ambrosio, Yusuke Matsui',
-    journal: 'Preprint / In Press',
-    tag: 'Preprint'
+    journal: 'Aging Cell',
+    citation: '23(2): e14043',
+    tag: 'Journal'
   },
   {
     id: '2023-6',
