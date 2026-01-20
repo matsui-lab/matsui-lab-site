@@ -50,6 +50,15 @@ export const PUBLICATIONS: Publication[] = [
     tag: 'Journal'
   },
   {
+    id: '2025-4',
+    year: 2025,
+    title: 'Improved Prediction Accuracy for Late-Onset Preeclampsia Using cfRNA Profiles: A Comparative Study of Marker Selection Strategies',
+    authors: 'Akiha Nakano, Kohei Uno, Yusuke Matsui',
+    journal: 'Healthcare',
+    citation: '13(10): 1162',
+    tag: 'Journal'
+  },
+  {
     id: '2025-2',
     year: 2025,
     title: 'GlycanGT: A Foundation Model for Glycan Graphs with Pretrained Representation and Generative Learning',
@@ -92,6 +101,15 @@ export const PUBLICATIONS: Publication[] = [
     authors: 'Yusuke Matsui',
     journal: 'Glycoforum',
     citation: '27(4): A12',
+    tag: 'Journal'
+  },
+  {
+    id: '2024-8',
+    year: 2024,
+    title: 'The Human Glycome Atlas Project for Cataloging All Glycan-Related Omics Data in Human',
+    authors: 'Kiyoko F Aoki-Kinoshita, Yukie Akune-Taylor, Hiromune Ando, Kiyohiko Angata, Morihisa Fujita, Jun-Ichi Furukawa, Hiroyuki Kaji, Koichi Kato, Ken Kitajima, Yasuhiko Kizuka, Yusuke Matsui, Kazuki Nakajima, Shoko Nishihara, Tetsuya Okajima, Kazuma Sakamoto, Chihiro Sato, Morten Thaysen-Andersen, Akira Togayachi, Hirokazu Yagi, Achille Zappa, Kenji Kadomatsu',
+    journal: 'Glycobiology',
+    citation: '34(11): cwae052',
     tag: 'Journal'
   },
   {
