@@ -1057,8 +1057,14 @@ function App() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-nu-tech to-blue-400">{content.hero.titleTwin}</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-nu-textMuted leading-relaxed mb-10 font-light">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-nu-textMuted leading-relaxed mb-4 font-light">
             {content.hero.subtitle}
+          </p>
+          
+          <p className="text-neutral-600 dark:text-neutral-400 mt-4 mb-10 max-w-2xl mx-auto text-base leading-relaxed">
+            松井佑介（名古屋大学・医学系研究科）が主宰する松井研究室では、
+            計算健康科学、AI、マルチオミクス解析、バイオインフォマティクスなど、
+            データ駆動型の生命医科学研究を推進しています。
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto">
