@@ -893,8 +893,56 @@ export const contentEN: LabContent = {
       {
         id: 'comp-bio',
         title: 'Computational Biology',
-        description: 'We elucidate complex biological phenomena—from cancer and dementia to aging muscles—using large-scale omics analysis and network theory.',
+        description: 'We elucidate complex biological phenomena—from cancer and dementia to aging muscles—using large-scale omics analysis and network theory. We are also actively working on glycomics (glycan analysis), an emerging layer of omics.',
         projects: [
+          {
+            id: 'cb-16',
+            title: "Glycan Biosynthetic Reachability Analysis",
+            subtitle: "Bottleneck-Aware Inference of Tissue Glycan Potential",
+            description: "Glycan biosynthesis requires coordinated expression of glycosyltransferases, modifying enzymes, and nucleotide-sugar machinery. We integrate expression Z-scores along curated pathway steps with AND/OR logic to produce continuous, tissue-comparable scores and identify the expression-limiting step, applied to 17,382 GTEx samples across 54 tissues.",
+            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Transcriptomics", "GTEx"]
+          },
+          {
+            id: 'cb-17',
+            title: "GlycanGT: A Foundation Model for Glycans",
+            subtitle: "Pretrained Graph Transformer for Glycan Structures",
+            description: "We represent glycans as graphs of monosaccharides and glycosidic bonds and pretrain a graph transformer with masked language modeling. GlycanGT outperformed existing methods across 8 benchmark tasks and proposes candidates for ambiguously annotated sequences. Code and pretrained weights are openly available.",
+            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Deep Learning", "Foundation Model"]
+          },
+          {
+            id: 'cb-18',
+            title: "GlycoMeSH: Biomedical Context for Glycans",
+            subtitle: "Linking Glycan Structures to MeSH for Enrichment Analysis",
+            description: "To make glycan sets biologically interpretable, we built a resource linking glycans to Medical Subject Headings (MeSH): an inference model (GlycoMeSH-BERT), a traceable database of 789,627 glycan–MeSH associations, and a glycan-set enrichment workflow for glycomics and glycoproteomics data.",
+            image: "https://images.unsplash.com/photo-1509266272358-7701da638078?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Knowledge Base", "Enrichment Analysis"]
+          },
+          {
+            id: 'cb-19',
+            title: "GlycoTraitR: Glycoproteomic Heterogeneity",
+            subtitle: "Trait-Based Analysis of N-Glycosylation Heterogeneity",
+            description: "An R package that imports N-glycoproteomics search-engine outputs, extracts biologically interpretable glycan structural traits, and quantifies micro- and macroheterogeneity at the site and protein levels to compare experimental conditions.",
+            image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoproteomics", "R Package", "Software"]
+          },
+          {
+            id: 'cb-20',
+            title: "Sex-Specific Mouse Glycoproteome Atlas",
+            subtitle: "Multi-Omics Atlas of Tissue Glycosylation (Collaboration)",
+            description: "In a collaborative study, transcriptomics, proteomics, and glycoproteomics were integrated across 19 tissues of male and female mice, revealing tissue-distinct glycoproteomes, glycophenotype–enzyme relationships, and sex-linked glycosylation in the salivary gland, liver, and kidney.",
+            image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoproteomics", "Multi-Omics", "Sex Differences"]
+          },
+          {
+            id: 'cb-21',
+            title: "OmicsLake: Reproducible Omics Workflows",
+            subtitle: "Versioned, Agent-Aware Data Lineage for R/Bioconductor",
+            description: "An R package that records dataset versions and their dependencies in exploratory R/Bioconductor analyses, and can tag each step with the human or AI agent that produced it, supporting reproducible AI-assisted research.",
+            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+            tags: ["Reproducibility", "R Package", "Data Lineage"]
+          },
           {
             id: 'cb-1',
             title: "Deep Learning Integration for Alzheimer’s Disease",
@@ -1022,6 +1070,38 @@ export const contentEN: LabContent = {
         title: 'Digital Health Science',
         description: 'We analyze sensor data from 3D depth cameras, motion capture, EEG, and EMG to quantify physical functions and create digital twins.',
         projects: [
+          {
+            id: 'dh-9',
+            title: "Neuromuscular Mechanisms of Rhythmic Auditory Stimulation",
+            subtitle: "Muscle Synergy and Intermuscular Coherence during Gait",
+            description: "Combining muscle synergy analysis with β-band intermuscular coherence, we showed in a collaborative study that changes in gait rhythmicity under Rhythmic Auditory Stimulation (RAS) are associated with phase-specific neural coordination between lower-limb muscles.",
+            image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Gait", "Neurorehabilitation"]
+          },
+          {
+            id: 'dh-10',
+            title: "Subgroup-Aware Muscle Synergy Analysis",
+            subtitle: "Mixture Factor Analysis for Heterogeneous EMG Data",
+            description: "Pooled or post hoc clustered synergy analyses can obscure subgroup-specific coordination. We apply mixture factor analysis and mixture probabilistic PCA to jointly discover subgroups and extract low-dimensional EMG coordination, outperforming two-step workflows in simulations.",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Statistics", "Latent Variable Models"]
+          },
+          {
+            id: 'dh-11',
+            title: "Predicting Muscle Activity from Hand Movements",
+            subtitle: "Cross-Subject EMG Envelope Prediction from Kinematics",
+            description: "Estimating surface EMG envelopes from hand kinematics could provide an indirect measure of muscle activity when EMG is unavailable. We are developing a magnitude-aware representation that retains movement scale to improve deep-learning predictions for unseen individuals.",
+            image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Deep Learning", "Kinematics"]
+          },
+          {
+            id: 'dh-12',
+            title: "Temporal Phenotyping of Stress Responses",
+            subtitle: "Cascaded Hidden Markov Model for Multisystem Physiology",
+            description: "Stress responses unfold over time across cardiac, electrodermal, and respiratory systems. We develop a two-stage cascaded hidden Markov model that preserves subsystem-specific transitions before integrating them, making the timing and ordering of multisystem responses observable in wearable data.",
+            image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=800",
+            tags: ["Wearables", "Hidden Markov Model", "Stress"]
+          },
           {
             id: 'dh-1',
             title: "Large-Scale 2D Video Gait Analysis",
@@ -1239,6 +1319,54 @@ export const contentJP: LabContent = {
         description: '大規模オミクス解析やネットワーク理論を駆使し、がん・認知症・加齢筋などの複雑な生命現象をシステム的に解明します。近年は、新たなオミクスであるグライコミクス（糖鎖解析）にも積極的に取り組んでいます。',
         projects: [
           {
+            id: 'cb-16',
+            title: "Glycan Biosynthetic Reachability Analysis",
+            subtitle: "ボトルネックを考慮した組織別糖鎖生合成ポテンシャルの推定",
+            description: "糖鎖の生合成には、糖転移酵素・修飾酵素・糖ヌクレオチドの合成と輸送が協調して働く必要があります。経路の各ステップの発現ZスコアをAND/ORロジックで統合し、組織間で比較可能な連続スコアと律速となる発現ステップを推定する手法を開発し、GTExの54組織・17,382サンプルに適用しました。",
+            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Transcriptomics", "GTEx"]
+          },
+          {
+            id: 'cb-17',
+            title: "GlycanGT: A Foundation Model for Glycans",
+            subtitle: "糖鎖構造のための事前学習済みグラフTransformer",
+            description: "糖鎖を単糖とグリコシド結合からなるグラフとして表現し、マスク言語モデルによってグラフTransformerを事前学習しました。8つのベンチマーク課題で既存手法を上回り、アノテーションが曖昧な配列についても候補構造を提示できます。コードと学習済みモデルを公開しています。",
+            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Deep Learning", "Foundation Model"]
+          },
+          {
+            id: 'cb-18',
+            title: "GlycoMeSH: Biomedical Context for Glycans",
+            subtitle: "糖鎖構造とMeSH用語を結び付けたエンリッチメント解析",
+            description: "糖鎖の集合を生物医学的に解釈できるよう、糖鎖と医学用語シソーラス（MeSH）を結び付けるリソースを構築しました。推論モデル（GlycoMeSH-BERT）、出典をたどれる789,627件の糖鎖–MeSH関連データベース、グライコミクス・糖プロテオミクスデータに適用できる糖鎖セットのエンリッチメント解析ワークフローから構成されます。",
+            image: "https://images.unsplash.com/photo-1509266272358-7701da638078?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoinformatics", "Knowledge Base", "Enrichment Analysis"]
+          },
+          {
+            id: 'cb-19',
+            title: "GlycoTraitR: Glycoproteomic Heterogeneity",
+            subtitle: "N型糖鎖修飾の構造的不均一性を形質ベースで解析",
+            description: "N型糖ペプチドの検索エンジン出力を取り込み、生物学的に解釈可能な糖鎖構造形質を抽出して、糖鎖付加部位・タンパク質レベルのミクロ／マクロ不均一性を定量し、実験条件間で比較するRパッケージです。",
+            image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoproteomics", "R Package", "Software"]
+          },
+          {
+            id: 'cb-20',
+            title: "Sex-Specific Mouse Glycoproteome Atlas",
+            subtitle: "組織糖鎖修飾のマルチオミクスアトラス（共同研究）",
+            description: "共同研究として、雄雌マウス19組織のトランスクリプトーム・プロテオーム・糖プロテオームを統合解析しました。組織ごとに異なる糖プロテオーム、糖鎖表現型と糖鎖関連酵素の関係、唾液腺・肝臓・腎臓における糖鎖修飾の性差を明らかにしました。",
+            image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800",
+            tags: ["Glycoproteomics", "Multi-Omics", "Sex Differences"]
+          },
+          {
+            id: 'cb-21',
+            title: "OmicsLake: Reproducible Omics Workflows",
+            subtitle: "R/Bioconductor向けのバージョン管理・データ系譜管理",
+            description: "探索的なR/Bioconductor解析において、データセットのバージョンと依存関係を記録し、各処理を行った研究者やAIエージェントの識別子も付与できるRパッケージです。AIを活用した研究の再現性を支えます。",
+            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+            tags: ["Reproducibility", "R Package", "Data Lineage"]
+          },
+          {
             id: 'cb-1',
             title: "Deep Learning Integration for Alzheimer’s Disease",
             subtitle: "深層学習によるアルツハイマー病の分子標的探索",
@@ -1365,6 +1493,38 @@ export const contentJP: LabContent = {
         title: 'デジタル健康学 (Digital Health Science)',
         description: '3D深度カメラ・モーションキャプチャ・脳波・筋電図などのセンサーデータを解析し、身体機能の数値化とデジタルツイン化を目指します。臨床現場や生活空間での「身体の見える化」を通じて、リハビリ・健康支援・DX基盤構築に貢献します。',
         projects: [
+          {
+            id: 'dh-9',
+            title: "Neuromuscular Mechanisms of Rhythmic Auditory Stimulation",
+            subtitle: "歩行中の筋シナジーと筋間コヒーレンス解析",
+            description: "共同研究として、筋シナジー解析とβ帯域の筋間コヒーレンス解析を組み合わせ、リズム聴覚刺激（RAS）下での歩行リズムの変化が、下肢筋間の歩行相特異的な神経協調と関連することを示しました。",
+            image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Gait", "Neurorehabilitation"]
+          },
+          {
+            id: 'dh-10',
+            title: "Subgroup-Aware Muscle Synergy Analysis",
+            subtitle: "異質なEMGデータのための混合因子分析",
+            description: "被験者をまとめた解析や事後的なクラスタリングでは、サブグループ固有の筋協調構造が見えにくくなります。混合因子分析・混合確率的PCAにより、サブグループの発見と低次元の筋協調抽出を同時に行う手法を検討し、シミュレーションで従来の2段階手法を上回る性能を示しました。",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Statistics", "Latent Variable Models"]
+          },
+          {
+            id: 'dh-11',
+            title: "Predicting Muscle Activity from Hand Movements",
+            subtitle: "運動学データからの被験者横断的な筋電包絡線予測",
+            description: "筋電計測ができない場面でも筋活動を間接的に推定できるよう、手の運動学データから表面筋電の包絡線を予測する研究を進めています。動きの大きさの情報を保持した表現により、未知の個人に対する深層学習予測の改善を目指しています。",
+            image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
+            tags: ["EMG", "Deep Learning", "Kinematics"]
+          },
+          {
+            id: 'dh-12',
+            title: "Temporal Phenotyping of Stress Responses",
+            subtitle: "多系統生理データのためのカスケード型隠れマルコフモデル",
+            description: "ストレス反応は、心拍・皮膚電気活動・呼吸など複数の生理系にまたがって時間的に展開します。各生理系の状態遷移を保ったまま統合する2段階のカスケード型隠れマルコフモデルを開発し、ウェアラブルデータから多系統反応のタイミングや順序を捉えることを目指しています。",
+            image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=800",
+            tags: ["Wearables", "Hidden Markov Model", "Stress"]
+          },
           {
             id: 'dh-1',
             title: "Large-Scale 2D Video Gait Analysis",
