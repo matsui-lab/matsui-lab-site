@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { Member, Alumnus, Publication, NewsItem, ResearchDomain, SectionId, LabContent, Language, ServerSpec, HPCClusterSpec, DeviceSpec, Theme } from './types';
+import { Member, Alumnus, CareerPath, Publication, NewsItem, ResearchDomain, SectionId, LabContent, Language, ServerSpec, HPCClusterSpec, DeviceSpec, Theme } from './types';
 import { Dna, BrainCircuit, Activity, Network, Binary, Smartphone, Database, Code, Monitor, Glasses, Hand, Camera } from 'lucide-react';
 
 /* --- THEMES --- */
@@ -630,20 +630,104 @@ export const ALUMNI: Alumnus[] = [
   {
     id: 'nakano',
     name: 'Akiha Nakano',
-    position: 'Completed Master\'s Program (2026)',
-    positionJp: '修士課程修了（2026年）'
+    position: 'Completed Master\'s Program (FY2025)',
+    positionJp: '修士修了（R7年度）'
   },
   {
     id: 'yanase',
     name: 'Ryota Yanase',
-    position: 'Completed Master\'s Program (2026)',
-    positionJp: '修士課程修了（2026年）'
+    position: 'Completed Master\'s Program (FY2025)',
+    positionJp: '修士修了（R7年度）'
   },
   {
     id: 'suhara',
     name: 'Go Suhara',
-    position: 'Completed Master\'s Program (2026)',
-    positionJp: '修士課程修了（2026年）'
+    position: 'Completed Master\'s Program (FY2025)',
+    positionJp: '修士修了（R7年度）'
+  },
+  {
+    id: 'iijima',
+    name: 'Hirotaka Iijima',
+    position: 'Former Designated Assistant Professor, Institute for Advanced Research, Nagoya University (currently Assistant Professor, Harvard Medical School)',
+    positionJp: '名古屋大学高等研究院 特任助教（現在：ハーバード大学医学部 助教授）'
+  },
+  {
+    id: 'kodama',
+    name: 'Hayata Kodama',
+    position: 'Completed Master\'s Program, Medical Technology (FY2023)',
+    positionJp: '検査技術学専攻・修士修了（R5年度）'
+  },
+  {
+    id: 'sakata',
+    name: 'Hibiki Sakata',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2023)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R5年度）'
+  },
+  {
+    id: 'shimazaki',
+    name: 'Koji Shimazaki',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2023)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R5年度）'
+  },
+  {
+    id: 'tsukioka',
+    name: 'Kako Tsukioka',
+    position: 'Completed Bachelor\'s Program, Nursing (FY2023)',
+    positionJp: '看護学専攻・学士修了（R5年度）'
+  },
+  {
+    id: 'sugiyama',
+    name: 'Yuki Sugiyama',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  },
+  {
+    id: 'hayashi',
+    name: 'Yusaku Hayashi',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  },
+  {
+    id: 'tsuzuki',
+    name: 'Rinka Tsuzuki',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  },
+  {
+    id: 'ikeda',
+    name: 'Hina Ikeda',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  },
+  {
+    id: 'yamamura',
+    name: 'Shuhei Yamamura',
+    position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
+    positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  }
+];
+
+export const CAREER_PATHS: CareerPath[] = [
+  {
+    id: 'fy2025',
+    year: 'FY2025',
+    yearJp: 'R7年度',
+    destinations: ['Accenture', 'NTT DOCOMO, INC.', 'DENSO Corporation'],
+    destinationsJp: ['アクセンチュア', '株式会社NTTドコモ', '株式会社デンソー']
+  },
+  {
+    id: 'fy2023',
+    year: 'FY2023',
+    yearJp: 'R5年度',
+    destinations: ['NTT DOCOMO, INC.', 'Fujitsu Limited', 'LITALICO Inc.'],
+    destinationsJp: ['株式会社NTTドコモ', '富士通株式会社', '株式会社LITALICO']
+  },
+  {
+    id: 'fy2021',
+    year: 'FY2021',
+    yearJp: 'R3年度',
+    destinations: ['INTAGE Healthcare Inc.', 'SoftBank Corp.', 'NTT Urban Development Corporation', 'JFE Systems, Inc.'],
+    destinationsJp: ['株式会社インテージヘルスケア', 'ソフトバンク株式会社', 'NTT都市開発株式会社', 'JFEシステムズ株式会社']
   }
 ];
 
@@ -1071,7 +1155,9 @@ export const contentEN: LabContent = {
     subtitle: "Experts in dry-lab analysis and wet-lab experiments.",
     list: MEMBERS,
     alumniTitle: "Alumni",
-    alumni: ALUMNI
+    alumni: ALUMNI,
+    careerTitle: "Career Paths",
+    careers: CAREER_PATHS
   },
   footer: {
     rights: "Matsui Laboratory. Data-Driven Knowledge Generation.",
@@ -1411,8 +1497,10 @@ export const contentJP: LabContent = {
     title: "Team Members",
     subtitle: "ドライ解析とウェット実験の専門家チーム。",
     list: MEMBERS,
-    alumniTitle: "卒業生・元メンバー",
-    alumni: ALUMNI.map(a => ({ ...a, position: a.positionJp ?? a.position }))
+    alumniTitle: "過去の在籍者",
+    alumni: ALUMNI.map(a => ({ ...a, position: a.positionJp ?? a.position })),
+    careerTitle: "過去の進路",
+    careers: CAREER_PATHS.map(c => ({ ...c, year: c.yearJp ?? c.year, destinations: c.destinationsJp ?? c.destinations }))
   },
   footer: {
     rights: "Matsui Laboratory. Data-Driven Knowledge Generation.",

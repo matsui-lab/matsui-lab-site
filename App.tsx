@@ -1647,6 +1647,25 @@ function App() {
               </div>
             </div>
           )}
+
+          {/* Career Paths */}
+          {content.members.careers.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-nu-text mb-6">{content.members.careerTitle}</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {content.members.careers.map((career) => (
+                  <ScrollReveal key={career.id} className="bg-nu-surface rounded-xl border border-nu-border px-5 py-4">
+                    <h4 className="font-mono text-nu-accent text-sm mb-2">{career.year}</h4>
+                    <ul className="space-y-1">
+                      {career.destinations.map((destination) => (
+                        <li key={destination} className="text-nu-text text-sm">{destination}</li>
+                      ))}
+                    </ul>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

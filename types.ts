@@ -49,6 +49,14 @@ export interface Alumnus {
   positionJp?: string; // Current position (JP)
 }
 
+export interface CareerPath {
+  id: string;
+  year: string; // e.g. FY2025 (EN)
+  yearJp?: string; // e.g. R7年度 (JP)
+  destinations: string[];
+  destinationsJp?: string[];
+}
+
 export interface Publication {
   id: string;
   year: number;
@@ -187,6 +195,8 @@ export interface LabContent {
     list: Member[];
     alumniTitle: string;
     alumni: Alumnus[];
+    careerTitle: string;
+    careers: CareerPath[];
   };
   footer: {
     rights: string;
