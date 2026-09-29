@@ -39,6 +39,70 @@ export const DEFAULT_LIGHT_THEME: Theme = {
 /* --- SHARED DATA (Images, IDs, Publications) --- */
 
 export const PUBLICATIONS: Publication[] = [
+  // 2026
+  {
+    id: '2026-1',
+    year: 2026,
+    title: 'Glycan Reachability Analysis: A Bottleneck-Aware Framework for Inferring Tissue-Specific Glycan Biosynthetic Potential from Transcriptomics',
+    authors: 'Yusuke Matsui',
+    journal: 'PLOS Computational Biology',
+    citation: '22(9): e1014655',
+    tag: 'Journal'
+  },
+  {
+    id: '2025-3',
+    year: 2026,
+    title: 'GlycoTraitR: An R Package for Characterizing Structural Heterogeneity in N-Linked Glycoproteomics Data',
+    authors: 'Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
+    journal: 'Bioinformatics Advances',
+    citation: 'vbag244',
+    tag: 'Journal'
+  },
+  {
+    id: '2026-2',
+    year: 2026,
+    title: 'Neuromuscular Mechanisms Underlying Rhythmic Auditory Stimulation Revealed Through Muscle Synergy and Intermuscular Coherence Analyses',
+    authors: 'Yuma Ueda, Koji Shimazaki, Kohei Uno, Yusuke Matsui, Eiji Yamanaka, Ippei Nojima',
+    journal: 'Gait & Posture',
+    citation: '127: 110145',
+    tag: 'Journal'
+  },
+  {
+    id: '2025-2',
+    year: 2026,
+    title: 'GlycanGT: A Pretrained Graph Transformer Framework for Glycan Graph Representation and Generative Learning',
+    authors: 'Akihiro Kitani, Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
+    journal: 'Bioinformatics',
+    citation: '42(4): btag147',
+    tag: 'Journal'
+  },
+  {
+    id: '2026-3',
+    year: 2026,
+    title: 'OmicsLake: Versioned, Agent-Aware Data Lineage for R/Bioconductor Workflows',
+    authors: 'Yusuke Matsui',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.07.17.739088',
+    tag: 'Preprint'
+  },
+  {
+    id: '2026-4',
+    year: 2026,
+    title: 'Multi-Omics Definition of the Sex-Specific Glycoproteome of Murine Tissues',
+    authors: 'Rebeca Kawahara, Masaya Hane, Di Wu, Bingyuan Zhang, Fumiya Sakamoto, Takahiro Nakagawa, Takayuki Omoto, Kristina Mae Bienes, Naaz Bansal, Zeynep Sumer-Bayraktar, Sayantani Chatterjee, Koichi Himori, Chiaki Nagai-Okatani, Atsushi Kuno, Makoto Kashima, Daniel Kolarich, Yusuke Matsui, Ken Kitajima, Kenji Kadomatsu, Chihiro Sato, Morten Thaysen-Andersen',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.03.10.710926',
+    tag: 'Preprint'
+  },
+  {
+    id: '2026-5',
+    year: 2026,
+    title: 'Mixture Factor Analysis for EMG Muscle Synergy Extraction: Joint Subgroup Discovery and Dimensionality Reduction',
+    authors: 'Yusuke Matsui, Masaaki Okabe',
+    journal: 'SSRN',
+    citation: '10.2139/ssrn.6798399',
+    tag: 'Preprint'
+  },
   // 2025
   {
     id: '2025-1',
@@ -57,24 +121,6 @@ export const PUBLICATIONS: Publication[] = [
     journal: 'Healthcare',
     citation: '13(10): 1162',
     tag: 'Journal'
-  },
-  {
-    id: '2025-2',
-    year: 2025,
-    title: 'GlycanGT: A Foundation Model for Glycan Graphs with Pretrained Representation and Generative Learning',
-    authors: 'Akihiro Kitani, Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
-    journal: 'bioRxiv',
-    citation: '10.64898/2025.12.14.694171',
-    tag: 'Preprint'
-  },
-  {
-    id: '2025-3',
-    year: 2025,
-    title: 'GlycoTraitR: an R package for characterizing structural heterogeneity in N-linked glycoproteomics data',
-    authors: 'Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
-    journal: 'bioRxiv',
-    citation: '10.64898/2025.12.16.694754',
-    tag: 'Preprint'
   },
   // 2024
   {
