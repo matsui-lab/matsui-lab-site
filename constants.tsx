@@ -77,6 +77,15 @@ export const PUBLICATIONS: Publication[] = [
     tag: 'Journal'
   },
   {
+    id: '2026-8',
+    year: 2026,
+    title: 'GlycoMeSH: Linking Glycan Structures to Biomedical Context for Systematic Enrichment Analysis',
+    authors: 'Akihiro Kitani, Bingyuan Zhang, Koichi Himori, Yusuke Matsui',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.08.18.745318',
+    tag: 'Preprint'
+  },
+  {
     id: '2026-3',
     year: 2026,
     title: 'OmicsLake: Versioned, Agent-Aware Data Lineage for R/Bioconductor Workflows',
