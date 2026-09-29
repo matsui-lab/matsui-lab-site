@@ -551,7 +551,7 @@ export const MEMBERS: Member[] = [
   {
     id: 'zhang',
     name: 'Bingyuan Zhang',
-    role: 'Assistant Professor',
+    role: 'Designated Assistant Professor (iGCORE)',
     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800', // Code/Data
     description: 'Specializes in Computational Biology and Algorithm Development.'
   },
