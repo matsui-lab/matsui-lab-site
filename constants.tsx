@@ -103,6 +103,24 @@ export const PUBLICATIONS: Publication[] = [
     citation: '10.2139/ssrn.6798399',
     tag: 'Preprint'
   },
+  {
+    id: '2026-6',
+    year: 2026,
+    title: 'Magnitude-Aware Cross-Subject Prediction of EMG Envelopes from Hand Kinematics',
+    authors: 'Masaaki Okabe, Ryosuke Mizuta, Kohei Uno, Yusuke Matsui',
+    journal: 'Biomedical Signal Processing and Control',
+    citation: 'Submitted',
+    tag: 'Preprint'
+  },
+  {
+    id: '2026-7',
+    year: 2026,
+    title: 'Temporal Phenotyping of Multisystem Stress Responses With a Cascaded Hidden Markov Model',
+    authors: 'Yusuke Matsui',
+    journal: 'IEEE Journal of Biomedical and Health Informatics',
+    citation: 'Submitted',
+    tag: 'Preprint'
+  },
   // 2025
   {
     id: '2025-1',
