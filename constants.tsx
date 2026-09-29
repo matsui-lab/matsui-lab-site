@@ -678,8 +678,8 @@ export const ALUMNI: Alumnus[] = [
   {
     id: 'watanabe',
     name: 'Mana Watanabe',
-    position: 'Completed Bachelor\'s Program (FY2023); proceeded to Graduate School, Kyoto University',
-    positionJp: '学士修了（R5年度）、京都大学大学院へ進学'
+    position: 'Completed Bachelor\'s Program, Nursing (FY2023); proceeded to Graduate School, Kyoto University',
+    positionJp: '看護学専攻・学士修了（R5年度）、京都大学大学院へ進学'
   },
   {
     id: 'sugiyama',
