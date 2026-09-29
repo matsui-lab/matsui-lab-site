@@ -1632,6 +1632,21 @@ function App() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Alumni */}
+          {content.members.alumni.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-nu-text mb-6">{content.members.alumniTitle}</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {content.members.alumni.map((alumnus) => (
+                  <ScrollReveal key={alumnus.id} className="bg-nu-surface rounded-xl border border-nu-border px-5 py-4">
+                    <h4 className="font-bold text-nu-text">{alumnus.name}</h4>
+                    <p className="text-nu-textMuted text-sm mt-1">{alumnus.position}</p>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

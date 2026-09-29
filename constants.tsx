@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { Member, Publication, NewsItem, ResearchDomain, SectionId, LabContent, Language, ServerSpec, HPCClusterSpec, DeviceSpec, Theme } from './types';
+import { Member, Alumnus, Publication, NewsItem, ResearchDomain, SectionId, LabContent, Language, ServerSpec, HPCClusterSpec, DeviceSpec, Theme } from './types';
 import { Dna, BrainCircuit, Activity, Network, Binary, Smartphone, Database, Code, Monitor, Glasses, Hand, Camera } from 'lucide-react';
 
 /* --- THEMES --- */
@@ -549,13 +549,6 @@ export const MEMBERS: Member[] = [
     }
   },
   {
-    id: 'uno',
-    name: 'Kohei Uno',
-    role: 'Assistant Professor',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800', // Tech/Bio
-    description: 'Specializes in Biomechanics and Motion Analysis.'
-  },
-  {
     id: 'zhang',
     name: 'Bingyuan Zhang',
     role: 'Assistant Professor',
@@ -565,16 +558,16 @@ export const MEMBERS: Member[] = [
   {
     id: 'himori',
     name: 'Koichi Himori',
-    role: 'Researcher',
+    role: 'Assistant Professor',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800', // Tech
     description: 'Focuses on Aging and Omics Data Analysis.'
   },
   {
-    id: 'okabe',
-    name: 'Masaaki Okabe',
-    role: 'Researcher (JSPS Post-Doc)',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800', // Lab/Science
-    description: 'Expert in JSPS Research Fellowship projects.'
+    id: 'kitani',
+    name: 'Akihiro Kitani',
+    role: 'Designated Assistant Professor (iGCORE)',
+    image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800', // Neural/Abstract
+    description: 'Researching Alzheimer\'s Disease and Network Medicine.'
   },
   {
     id: 'hatta',
@@ -592,60 +585,65 @@ export const MEMBERS: Member[] = [
   },
   // STUDENTS
   {
-    id: 'kitani',
-    name: 'Akihiro Kitani',
-    role: 'Ph.D. Student (D3)',
-    image: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800', // Neural/Abstract
-    description: 'Researching Alzheimer\'s Disease and Network Medicine.'
-  },
-  {
-    id: 'nakano',
-    name: 'Akiha Nakano',
-    role: 'Master Student (M2)',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800', // Omics
-    description: 'Researching Omics Analysis.'
-  },
-  {
-    id: 'yanase',
-    name: 'Ryota Yanase',
-    role: 'Master Student (M2)',
-    image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=800', // Digital Health
-    description: 'Researching Digital Health.'
-  },
-  {
-    id: 'suhara',
-    name: 'Go Suhara',
-    role: 'Master Student (M2)',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800', // Analytics
-    description: 'Researching Motion Analysis.'
-  },
-  {
     id: 'wakuda',
     name: 'Nanako Wakuda',
-    role: 'Master Student (M1)',
+    role: 'Master Student (M2)',
     image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800', // DNA
     description: 'Researching Health Informatics.'
   },
   {
     id: 'furuta',
     name: 'Takeru Furuta',
-    role: 'Master Student (M1)',
+    role: 'Master Student (M2)',
     image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800', // Code
     description: 'Researching Bioinformatics.'
   },
   {
     id: 'ota',
     name: 'Kosuke Ota',
-    role: 'Master Student (M1)',
+    role: 'Master Student (M2)',
     image: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800', // Code
     description: 'Researching Data Science.'
   },
   {
     id: 'mizuta',
     name: 'Ryosuke Mizuta',
-    role: 'Master Student (M1)',
+    role: 'Master Student (M2)',
     image: 'https://images.unsplash.com/photo-1530210124550-912dc1381cb8?auto=format&fit=crop&q=80&w=800', // Science
     description: 'Researching Integrated Health Sciences.'
+  }
+];
+
+export const ALUMNI: Alumnus[] = [
+  {
+    id: 'uno',
+    name: 'Kohei Uno',
+    position: 'Associate Professor, School of Information and Data Sciences, Nagasaki University',
+    positionJp: '長崎大学 情報データ科学部 准教授'
+  },
+  {
+    id: 'okabe',
+    name: 'Masaaki Okabe',
+    position: 'Assistant Professor, Faculty of Business Data Science, Kansai University',
+    positionJp: '関西大学 ビジネスデータサイエンス学部 助教'
+  },
+  {
+    id: 'nakano',
+    name: 'Akiha Nakano',
+    position: 'Completed Master\'s Program (2026)',
+    positionJp: '修士課程修了（2026年）'
+  },
+  {
+    id: 'yanase',
+    name: 'Ryota Yanase',
+    position: 'Completed Master\'s Program (2026)',
+    positionJp: '修士課程修了（2026年）'
+  },
+  {
+    id: 'suhara',
+    name: 'Go Suhara',
+    position: 'Completed Master\'s Program (2026)',
+    positionJp: '修士課程修了（2026年）'
   }
 ];
 
@@ -1071,7 +1069,9 @@ export const contentEN: LabContent = {
   members: {
     title: "Team Members",
     subtitle: "Experts in dry-lab analysis and wet-lab experiments.",
-    list: MEMBERS
+    list: MEMBERS,
+    alumniTitle: "Alumni",
+    alumni: ALUMNI
   },
   footer: {
     rights: "Matsui Laboratory. Data-Driven Knowledge Generation.",
@@ -1410,7 +1410,9 @@ export const contentJP: LabContent = {
   members: {
     title: "Team Members",
     subtitle: "ドライ解析とウェット実験の専門家チーム。",
-    list: MEMBERS
+    list: MEMBERS,
+    alumniTitle: "卒業生・元メンバー",
+    alumni: ALUMNI.map(a => ({ ...a, position: a.positionJp ?? a.position }))
   },
   footer: {
     rights: "Matsui Laboratory. Data-Driven Knowledge Generation.",

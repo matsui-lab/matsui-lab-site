@@ -42,6 +42,13 @@ export interface Member {
   };
 }
 
+export interface Alumnus {
+  id: string;
+  name: string;
+  position: string; // Current position (EN)
+  positionJp?: string; // Current position (JP)
+}
+
 export interface Publication {
   id: string;
   year: number;
@@ -178,6 +185,8 @@ export interface LabContent {
     title: string;
     subtitle: string;
     list: Member[];
+    alumniTitle: string;
+    alumni: Alumnus[];
   };
   footer: {
     rights: string;
