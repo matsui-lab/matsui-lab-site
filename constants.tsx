@@ -676,6 +676,12 @@ export const ALUMNI: Alumnus[] = [
     positionJp: '看護学専攻・学士修了（R5年度）'
   },
   {
+    id: 'watanabe',
+    name: 'Mana Watanabe',
+    position: 'Completed Bachelor\'s Program (FY2023); proceeded to Graduate School, Kyoto University',
+    positionJp: '学士修了（R5年度）、京都大学大学院へ進学'
+  },
+  {
     id: 'sugiyama',
     name: 'Yuki Sugiyama',
     position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
@@ -704,6 +710,18 @@ export const ALUMNI: Alumnus[] = [
     name: 'Shuhei Yamamura',
     position: 'Completed Master\'s Program, Rehabilitation Therapy (FY2021)',
     positionJp: 'リハビリテーション療法学専攻・修士修了（R3年度）'
+  },
+  {
+    id: 'hayashi-s',
+    name: 'Saki Hayashi',
+    position: 'Completed Bachelor\'s Program, Medical Technology (FY2019)',
+    positionJp: '検査技術学専攻・学士修了（R1年度）'
+  },
+  {
+    id: 'fujiwara',
+    name: 'Seiya Fujiwara',
+    position: 'Completed Bachelor\'s Program, Physical Therapy (FY2019)',
+    positionJp: '理学療法学専攻・学士修了（R1年度）'
   }
 ];
 
@@ -719,8 +737,8 @@ export const CAREER_PATHS: CareerPath[] = [
     id: 'fy2023',
     year: 'FY2023',
     yearJp: 'R5年度',
-    destinations: ['NTT DOCOMO, INC.', 'Fujitsu Limited', 'LITALICO Inc.'],
-    destinationsJp: ['株式会社NTTドコモ', '富士通株式会社', '株式会社LITALICO']
+    destinations: ['NTT DOCOMO, INC.', 'Fujitsu Limited', 'LITALICO Inc.', 'Graduate School, Kyoto University (further study)'],
+    destinationsJp: ['株式会社NTTドコモ', '富士通株式会社', '株式会社LITALICO', '京都大学大学院（進学）']
   },
   {
     id: 'fy2021',
