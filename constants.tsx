@@ -98,7 +98,8 @@ export const PUBLICATIONS: Publication[] = [
     year: 2026,
     title: 'A purpose-dependent framework for harmonizing and reusing public electromyography data',
     authors: 'Kosuke Ota, Masaaki Okabe, Yusuke Matsui',
-    journal: 'Submitted',
+    journal: 'SSRN',
+    citation: '10.2139/ssrn.7615204',
     tag: 'Preprint'
   },
   {
