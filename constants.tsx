@@ -77,6 +77,31 @@ export const PUBLICATIONS: Publication[] = [
     tag: 'Journal'
   },
   {
+    id: '2026-9',
+    year: 2026,
+    title: 'When can site-specific glycoform compositions resolve biosynthetic rates?',
+    authors: 'Yusuke Matsui, Koichi Himori, Bingyuan Zhang, Akihiro Kitani',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.10.09.757869',
+    tag: 'Preprint'
+  },
+  {
+    id: '2026-10',
+    year: 2026,
+    title: 'GlyEnzEA: reaction-informed enrichment of enzyme-centered glycan sets from glycomics data',
+    authors: 'Koichi Himori, Bingyuan Zhang, Yusuke Matsui',
+    journal: 'Submitted',
+    tag: 'Preprint'
+  },
+  {
+    id: '2026-11',
+    year: 2026,
+    title: 'A purpose-dependent framework for harmonizing and reusing public electromyography data',
+    authors: 'Kosuke Ota, Masaaki Okabe, Yusuke Matsui',
+    journal: 'Submitted',
+    tag: 'Preprint'
+  },
+  {
     id: '2026-8',
     year: 2026,
     title: 'GlycoMeSH: Linking Glycan Structures to Biomedical Context for Systematic Enrichment Analysis',
