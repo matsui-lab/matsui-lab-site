@@ -1584,7 +1584,9 @@ function App() {
                              <p className="text-nu-textMuted text-sm mb-2">{pub.authors}</p>
                              <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-nu-textMuted">
                                 <span className="text-nu-tech">{pub.journal}</span>
-                                {pub.citation && <span className="bg-nu-dark px-1 rounded">{pub.citation}</span>}
+                                {pub.citation && (pub.doi
+                                  ? <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="bg-nu-dark px-1 rounded hover:underline">{pub.citation}</a>
+                                  : <span className="bg-nu-dark px-1 rounded">{pub.citation}</span>)}
                              </div>
                           </div>
                           <div className="hidden md:flex flex-col justify-center opacity-0 group-hover:opacity-100 transition-opacity">
