@@ -121,6 +121,16 @@ export const PUBLICATIONS: Publication[] = [
     tag: 'Preprint'
   },
   {
+    id: '2026-12',
+    year: 2026,
+    title: 'Enrichment-free glycoproteomics harnessing real-time mass defect-driven glycopeptide classification reveals sex differences in murine fucosylation',
+    authors: 'Bingyuan Zhang, The Huong Chau, Kristina Mae Bienes, Hiromu Arakawa, Masaya Hane, Chihiro Sato, Akira Yokoi, Hiroyuki Kaji, Christopher Ashwood, Yusuke Matsui, Rebeca Kawahara, Morten Thaysen-Andersen',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.07.03.736455',
+    doi: '10.64898/2026.07.03.736455',
+    tag: 'Preprint'
+  },
+  {
     id: '2026-4',
     year: 2026,
     title: 'Multi-Omics Definition of the Sex-Specific Glycoproteome of Murine Tissues',
