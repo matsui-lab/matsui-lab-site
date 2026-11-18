@@ -154,9 +154,9 @@ export const PUBLICATIONS: Publication[] = [
     year: 2026,
     title: 'Mixture Factor Analysis for EMG Muscle Synergy Extraction: Joint Subgroup Discovery and Dimensionality Reduction',
     authors: 'Yusuke Matsui, Masaaki Okabe',
-    journal: 'SSRN',
-    citation: '10.2139/ssrn.6798399',
-    tag: 'Preprint'
+    journal: 'Journal of Electromyography and Kinesiology',
+    citation: 'Accepted / In press',
+    tag: 'Journal'
   },
   {
     id: '2026-6',
