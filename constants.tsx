@@ -77,6 +77,16 @@ export const PUBLICATIONS: Publication[] = [
     tag: 'Journal'
   },
   {
+    id: '2026-13',
+    year: 2026,
+    title: 'CATEomics: model selection and ensembling for heterogeneous treatment effect estimation from high-dimensional omics data',
+    authors: 'Takeru Furuta, Koichi Himori, Bingyuan Zhang, Akihiro Kitani, Yusuke Matsui',
+    journal: 'bioRxiv',
+    citation: '10.64898/2026.11.16.767168',
+    doi: '10.64898/2026.11.16.767168',
+    tag: 'Preprint'
+  },
+  {
     id: '2026-9',
     year: 2026,
     title: 'When can site-specific glycoform compositions resolve biosynthetic rates?',
