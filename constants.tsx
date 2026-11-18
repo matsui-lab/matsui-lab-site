@@ -41,6 +41,24 @@ export const DEFAULT_LIGHT_THEME: Theme = {
 export const PUBLICATIONS: Publication[] = [
   // 2026
   {
+    id: '2026-4',
+    year: 2026,
+    title: 'Multi-Omics Definition of the Sex-Specific Glycoproteome of Murine Tissues',
+    authors: 'Rebeca Kawahara, Masaya Hane, Di Wu, Bingyuan Zhang, Fumiya Sakamoto, Takahiro Nakagawa, Takayuki Omoto, Kristina Mae Bienes, Naaz Bansal, Zeynep Sumer-Bayraktar, Sayantani Chatterjee, Koichi Himori, Chiaki Nagai-Okatani, Atsushi Kuno, Makoto Kashima, Daniel Kolarich, Yusuke Matsui, Ken Kitajima, Kenji Kadomatsu, Chihiro Sato, Morten Thaysen-Andersen',
+    journal: 'Nature Communications',
+    citation: 'Accepted / In press',
+    tag: 'Journal'
+  },
+  {
+    id: '2026-5',
+    year: 2026,
+    title: 'Mixture Factor Analysis for EMG Muscle Synergy Extraction: Joint Subgroup Discovery and Dimensionality Reduction',
+    authors: 'Yusuke Matsui, Masaaki Okabe',
+    journal: 'Journal of Electromyography and Kinesiology',
+    citation: 'Accepted / In press',
+    tag: 'Journal'
+  },
+  {
     id: '2026-1',
     year: 2026,
     title: 'Glycan Reachability Analysis: A Bottleneck-Aware Framework for Inferring Tissue-Specific Glycan Biosynthetic Potential from Transcriptomics',
@@ -139,24 +157,6 @@ export const PUBLICATIONS: Publication[] = [
     citation: '10.64898/2026.07.03.736455',
     doi: '10.64898/2026.07.03.736455',
     tag: 'Preprint'
-  },
-  {
-    id: '2026-4',
-    year: 2026,
-    title: 'Multi-Omics Definition of the Sex-Specific Glycoproteome of Murine Tissues',
-    authors: 'Rebeca Kawahara, Masaya Hane, Di Wu, Bingyuan Zhang, Fumiya Sakamoto, Takahiro Nakagawa, Takayuki Omoto, Kristina Mae Bienes, Naaz Bansal, Zeynep Sumer-Bayraktar, Sayantani Chatterjee, Koichi Himori, Chiaki Nagai-Okatani, Atsushi Kuno, Makoto Kashima, Daniel Kolarich, Yusuke Matsui, Ken Kitajima, Kenji Kadomatsu, Chihiro Sato, Morten Thaysen-Andersen',
-    journal: 'bioRxiv',
-    citation: '10.64898/2026.03.10.710926',
-    tag: 'Preprint'
-  },
-  {
-    id: '2026-5',
-    year: 2026,
-    title: 'Mixture Factor Analysis for EMG Muscle Synergy Extraction: Joint Subgroup Discovery and Dimensionality Reduction',
-    authors: 'Yusuke Matsui, Masaaki Okabe',
-    journal: 'Journal of Electromyography and Kinesiology',
-    citation: 'Accepted / In press',
-    tag: 'Journal'
   },
   {
     id: '2026-6',
